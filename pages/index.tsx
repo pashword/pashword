@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <h5 className="text-center text-xs text-slate-500 xs:self-end sm:text-xl">
           Passwords done right
         </h5>
-        <form className="mt-5 flex w-full flex-col items-center justify-center gap-y-5 text-center text-xs xxs:text-base">
+        <form className="z-10 mt-5 flex w-full flex-col items-center justify-center gap-y-5 text-center text-xs xxs:text-base">
           <div className="flex w-full flex-col items-center justify-center">
             <label className="input-label">Website Name</label>
             <input
