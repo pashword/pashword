@@ -7,6 +7,9 @@
   html {
     font-family: Poppins, system-ui, sans-serif;
   }
+  * {
+    @apply transition-all duration-300 ease-in-out;
+  }
 }
 
 @layer components {
@@ -14,6 +17,9 @@
     @apply flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-neutral-900;
   }
   .input-text {
-    @apply h-12 w-4/5 rounded-full bg-gray-800 px-4 text-center text-gray-200 outline-none placeholder:text-gray-600;
+    @apply h-8 w-4/5 rounded-full bg-gray-800 px-4 text-center text-gray-200 outline-none ring-1 ring-gray-600 placeholder:text-gray-600 hover:ring-gray-400 focus:ring-gray-300 xxs:h-12;
+  }
+  .input-label {
+    @apply text-gray-600 sm:ml-16 sm:self-start;
   }
 }
