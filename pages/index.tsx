@@ -1,6 +1,14 @@
 import type { NextPage } from "next";
+import { useState } from "react";
 
 const Home: NextPage = () => {
+  const [website, setWebsite] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [pashword, setPashword] = useState("");
+
+  const submitHandler = () => {};
+
   return (
     <div className="page-root">
       <main className="flex flex-col items-center justify-center">
@@ -10,7 +18,10 @@ const Home: NextPage = () => {
         <h5 className="text-center text-xs text-slate-500 xs:self-end sm:text-xl">
           Passwords done right
         </h5>
-        <form className="z-10 mt-5 flex w-full flex-col items-center justify-center gap-y-5 text-center text-xs xxs:text-base">
+        <form
+          className="z-10 mt-5 flex w-full flex-col items-center justify-center gap-y-1 text-center text-xs xxs:gap-y-5 xxs:text-base"
+          onSubmit={submitHandler}
+        >
           <div className="flex w-full flex-col items-center justify-center">
             <label className="input-label">Website Name</label>
             <input
@@ -47,8 +58,8 @@ const Home: NextPage = () => {
             Get Pashword 😎
           </button>
         </form>
-        <div className="absolute left-0 h-1/2 w-1/2 rounded-full bg-violet-600 opacity-30 blur-[100px]" />
-        <div className="absolute right-0 top-0 h-1/2 w-1/2 rounded-full bg-cyan-600 opacity-30 blur-[100px]" />
+        <div className="absolute left-0 h-1/2 w-full rounded-full bg-violet-600 opacity-30 blur-[100px]" />
+        <div className="absolute right-0 top-0 h-1/2 w-full rounded-full bg-cyan-600 opacity-30 blur-[100px]" />
       </main>
     </div>
   );
