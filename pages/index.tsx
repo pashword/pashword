@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import React, { useState } from "react";
+import { generatePashword } from "../utils/functions";
 
 const Home: NextPage = () => {
   const [website, setWebsite] = useState("");
@@ -7,7 +8,16 @@ const Home: NextPage = () => {
   const [password, setPassword] = useState("");
   const [pashword, setPashword] = useState("");
 
-  const submitHandler = () => {};
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    let toHash = {
+      website,
+      username,
+      password,
+    };
+
+    let pashed = generatePashword(JSON.stringify(toHash));
+  };
 
   return (
     <div className="page-root">
@@ -29,6 +39,8 @@ const Home: NextPage = () => {
               name="website"
               className="input-text"
               placeholder="Example: reddit, google"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
             />
           </div>
           <div className="flex w-full flex-col items-center justify-center">
@@ -38,6 +50,8 @@ const Home: NextPage = () => {
               name="username"
               className="input-text"
               placeholder="Example: nayamamarshe"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="flex w-full flex-col items-center justify-center">
@@ -49,6 +63,8 @@ const Home: NextPage = () => {
               name="passphrase"
               className="input-text"
               placeholder="Example: mylittlepony"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button
