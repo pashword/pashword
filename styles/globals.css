@@ -22,4 +22,13 @@
   .input-label {
     @apply mb-1 text-gray-500 sm:ml-16 sm:self-start;
   }
+  .card-container {
+    @apply max-h-64 w-80 space-y-4 rounded-xl bg-neutral-800 p-5;
+  }
+  .card-heading {
+    @apply text-lg font-semibold text-amber-500;
+  }
+  .card-content {
+    @apply text-neutral-300;
+  }
 }

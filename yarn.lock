@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@juanelas/base64@^1.0.1":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@juanelas/base64/-/base64-1.0.4.tgz#e457b9e8e10170f3d2ad685b7a82655bc4397c8b"
+  integrity sha512-KUidDSb+K7Rkoy2uJ/HdCnt4soNRlhNXONU8r8Cgic6Qq3E9BPg4kMSYXchM37WpYvGEGq2NUq/kCegMSLhtIg==
+
 "@next/env@12.1.6":
   version "12.1.6"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-12.1.6.tgz#5f44823a78335355f00f1687cfc4f1dafa3eca08"
@@ -155,6 +160,18 @@ autoprefixer@^10.4.0:
     normalize-range "^0.1.2"
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
+
+big-integer@^1.6.51:
+  version "1.6.51"
+  resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.51.tgz#0df92a5d9880560d3ff2d5fd20245c889d130686"
+  integrity sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg==
+
+bigint-conversion@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/bigint-conversion/-/bigint-conversion-2.2.1.tgz#08c9f17a826943c7e56d4bfa9f0fc7fe8050a940"
+  integrity sha512-9TvqpV+VZ04fPKv4KPLQRk5ZAFhgHX4F7bYQY263/BbJBFzEGbtBeTQV9oNuAGaqj88PXdov1OcSNQtq9K9MPA==
+  dependencies:
+    "@juanelas/base64" "^1.0.1"
 
 binary-extensions@^2.0.0:
   version "2.2.0"
@@ -534,6 +551,11 @@ react-dom@^17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
+
+react-icons@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
+  integrity sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==
 
 react@^17.0.2:
   version "17.0.2"
