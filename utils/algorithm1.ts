@@ -2,12 +2,9 @@ import jsSHA from "jssha";
 import bigInt from "big-integer";
 import * as bigintConversion from "bigint-conversion";
 
-const alphabets = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const digits = "0123456789";
-const symbols = ".$#@";
-const passwordCharacters = alphabets + digits + symbols;
-console.log("🚀 => passwordCharacters.length", passwordCharacters.length);
-const length = 20;
+const hashCharacters =
+  "&E@U2VpRz=5CYeD38PIZLXAxTmJBifs*wr1.qkGovWF7ta6NShdbj#uOnQ%HKgMcyl90$4";
+const hashLength = 20;
 
 export const generatePashword = (toHash: string): string => {
   // Setting up SHA generation config
@@ -18,9 +15,11 @@ export const generatePashword = (toHash: string): string => {
   let hashBase64 = shaObj.getHash("B64");
   let hashBigInteger = bigInt(bigintConversion.base64ToBigint(hashBase64));
 
-  let pashword = "";
-  for (let i = 0; i < length; i++) {
-    let charSubstring = passwordCharacters;
+  console.log("🚀 => hashBigInteger", hashBigInteger.toString());
+
+  let newHash = "";
+  for (let i = 0; i < hashLength; i++) {
+    let charSubstring = hashCharacters;
     while (charSubstring.length > 1) {
       if (hashBigInteger.isOdd()) {
         charSubstring = charSubstring.slice(0, charSubstring.length / 2);
@@ -29,9 +28,9 @@ export const generatePashword = (toHash: string): string => {
       }
       hashBigInteger = hashBigInteger.shiftRight(1);
     }
-    pashword += charSubstring;
+    newHash += charSubstring;
   }
-  console.log("🚀 => generatePashword => pashword", pashword);
+  console.log("🚀 => newHash", newHash);
 
-  return pashword;
+  return newHash;
 };

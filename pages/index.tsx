@@ -1,10 +1,12 @@
 import type { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 import HeroSection from "../components/HeroSection";
-import { generatePashword } from "../utils/functions";
+import { generatePashword } from "../utils/algorithm2";
 
 const Home: NextPage = () => {
-  const backgrounds = ["bg-violet-600", "bg-slate-500"];
+  const backgrounds2 = ["bg-cyan-600", "bg-pink-600"];
+  const backgrounds = ["bg-violet-600", "bg-blue-500"];
+
   const [website, setWebsite] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +15,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     const totalSectionsOnPage = 2;
-    const multiplier = window.innerHeight - 500 / totalSectionsOnPage;
+    const multiplier = window.innerHeight - 600 / totalSectionsOnPage;
 
     const handleScroll = () => {
       console.log("Multiplier: ", multiplier);
@@ -40,7 +42,7 @@ const Home: NextPage = () => {
       password,
     };
 
-    let pashed = generatePashword(JSON.stringify(toHash));
+    let pashed = generatePashword(JSON.stringify(toHash), 20);
   };
 
   return (
@@ -99,12 +101,11 @@ const Home: NextPage = () => {
               Get Pashword 😎
             </button>
           </form>
-          <h1 className="fixed top-0 text-8xl text-white">{backgroundIndex}</h1>
           <div
-            className={`fixed left-0 h-1/2 w-full rounded-full duration-1000 ${backgrounds[backgroundIndex]} opacity-30 blur-[100px]`}
+            className={`absolute left-0 h-1/2 w-full rounded-full duration-1000 ${backgrounds[backgroundIndex]} opacity-30 blur-[100px]`}
           />
           <div
-            className={`fixed right-0 top-0 h-1/2 w-full rounded-full opacity-30 blur-[100px]`}
+            className={`${backgrounds2[backgroundIndex]} absolute right-0 top-0 h-1/2 w-full rounded-full opacity-30 blur-[100px]`}
           />
         </main>
       </div>

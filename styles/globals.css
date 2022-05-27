@@ -14,7 +14,7 @@
 
 @layer components {
   .page-root {
-    @apply flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-black;
+    @apply flex min-h-screen w-screen flex-col items-center justify-center bg-black;
   }
   .input-text {
     @apply h-8 w-4/5 rounded-full bg-gray-800/50 px-4 text-center text-gray-200 outline-none ring-1 ring-gray-600 placeholder:text-gray-600 hover:ring-gray-400 focus:ring-gray-300 xxs:h-12;
@@ -23,12 +23,12 @@
     @apply mb-1 text-gray-500 sm:ml-16 sm:self-start;
   }
   .card-container {
-    @apply max-h-64 w-80 space-y-4 rounded-xl bg-zinc-800 p-5;
+    @apply flex max-h-64 w-80 flex-col items-center space-y-4 rounded-xl bg-gray-900 p-5;
   }
   .card-heading {
-    @apply text-lg font-semibold text-amber-500;
+    @apply bg-gradient-to-br from-cyan-500 to-cyan-200 bg-clip-text text-lg font-semibold text-transparent;
   }
   .card-content {
-    @apply text-zinc-300;
+    @apply text-slate-300;
   }
 }
