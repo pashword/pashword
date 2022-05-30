@@ -4,9 +4,6 @@ import HeroSection from "../components/HeroSection";
 import { generatePashword } from "../utils/algorithm2";
 
 const Home: NextPage = () => {
-  const backgrounds2 = ["bg-cyan-600", "bg-pink-600"];
-  const backgrounds = ["bg-violet-600", "bg-blue-500"];
-
   const [website, setWebsite] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -46,13 +43,19 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="overflow-x-hidden">
-      <div className="page-root">
+    <div className="relative overflow-x-hidden">
+      <div className="page-root relative overflow-hidden bg-slate-1000">
+        <div className="absolute top-[15%] left-[40%] h-96 w-96 animate-blob rounded-full bg-purple-500 opacity-50 mix-blend-difference blur-6xl filter"></div>
+        <div className="absolute top-[17%] left-[45%] h-1/2 w-96 animate-blob rounded-full bg-sky-500 opacity-50 mix-blend-difference blur-6xl filter"></div>
+        <div className="absolute top-[35%] left-[50%] h-96 w-96 animate-blob rounded-full bg-purple-500 opacity-50 mix-blend-difference blur-6xl filter"></div>
+        <div className="absolute top-[35%] left-[40%] h-1/2 w-96 animate-blob rounded-full bg-sky-500 opacity-50 mix-blend-difference blur-6xl filter"></div>
+
+        {/* SECTION 1 */}
         <main className="flex flex-col items-center justify-center">
-          <h1 className="z-10 text-2xl font-bold text-slate-100 xxs:text-6xl xs:text-7xl sm:text-8xl">
+          <h1 className="z-10 text-2xl font-bold text-slate-50 mix-blend-overlay xxs:text-6xl xs:text-7xl sm:text-8xl">
             Pashword
           </h1>
-          <h5 className="text-center text-xs text-slate-500 xs:self-end sm:text-xl">
+          <h5 className="z-10 text-center text-xs text-slate-300 mix-blend-overlay xs:self-end sm:text-xl">
             Passwords done right
           </h5>
           <form
@@ -83,7 +86,7 @@ const Home: NextPage = () => {
             </div>
             <div className="flex w-full flex-col items-center justify-center">
               <label className="input-label">
-                Secret Code - Used for all Pashwords
+                Secret Code - Same for all Pashwords
               </label>
               <input
                 type="text"
@@ -96,17 +99,11 @@ const Home: NextPage = () => {
             </div>
             <button
               type="submit"
-              className="z-10 mt-7 h-8 w-4/5 rounded-full bg-blue-600 px-4 text-center text-gray-100 outline-none ring-1 ring-blue-500 hover:shadow-lg hover:shadow-blue-600/20 hover:ring-blue-400 focus:ring-cyan-300 xxs:h-12"
+              className="z-10 mt-7 h-8 w-4/5 rounded-full bg-violet-600 px-4 text-center text-gray-100 outline-none ring-2 ring-violet-700 hover:from-red-700 hover:ring-violet-900 focus:ring-cyan-300 xxs:h-12"
             >
               Get Pashword 😎
             </button>
           </form>
-          <div
-            className={`absolute left-0 h-1/2 w-full rounded-full duration-1000 ${backgrounds[backgroundIndex]} opacity-30 blur-[100px]`}
-          />
-          <div
-            className={`${backgrounds2[backgroundIndex]} absolute right-0 top-0 h-1/2 w-full rounded-full opacity-30 blur-[100px]`}
-          />
         </main>
       </div>
       <HeroSection />

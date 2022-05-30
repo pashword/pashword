@@ -6,6 +6,7 @@
 @layer base {
   html {
     font-family: Poppins, system-ui, sans-serif;
+    @apply bg-black;
   }
   * {
     @apply transition-all duration-300 ease-in-out;
@@ -13,14 +14,17 @@
 }
 
 @layer components {
+  .animate {
+    @apply transition-all duration-300 ease-in-out;
+  }
   .page-root {
-    @apply flex min-h-screen w-screen flex-col items-center justify-center bg-black;
+    @apply flex min-h-screen w-screen flex-col items-center justify-center;
   }
   .input-text {
-    @apply h-8 w-4/5 rounded-full bg-gray-800/50 px-4 text-center text-gray-200 outline-none ring-1 ring-gray-600 placeholder:text-gray-600 hover:ring-gray-400 focus:ring-gray-300 xxs:h-12;
+    @apply h-8 w-4/5 rounded-full bg-slate-100/20 px-4 text-center text-slate-200 outline-none ring-1 ring-slate-600 placeholder:text-slate-400 hover:ring-gray-400 focus:ring-gray-300 xxs:h-12;
   }
   .input-label {
-    @apply mb-1 text-gray-500 sm:ml-16 sm:self-start;
+    @apply mb-1 text-slate-400 sm:ml-16 sm:self-start;
   }
   .card-container {
     @apply flex max-h-64 w-80 flex-col items-center space-y-4 rounded-xl bg-gray-900 p-5;
