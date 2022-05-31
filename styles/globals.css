@@ -21,10 +21,13 @@
     @apply flex min-h-screen w-screen flex-col items-center justify-center;
   }
   .input-text {
-    @apply h-8 w-4/5 rounded-full bg-slate-100/20 px-4 text-center text-slate-200 outline-none ring-1 ring-slate-600 placeholder:text-slate-400 hover:ring-gray-400 focus:ring-gray-300 xxs:h-12;
+    @apply h-8 w-4/5 rounded-full bg-slate-400/20 px-4 text-center text-slate-200 shadow-inner outline-none ring-1 ring-slate-400 placeholder:text-slate-400 hover:shadow-inner hover:shadow-slate-100 hover:ring-slate-200 focus:ring-gray-300 xxs:h-12;
   }
   .input-label {
     @apply mb-1 text-slate-400 sm:ml-16 sm:self-start;
+  }
+  .submit-button {
+    @apply z-10 mt-4 h-8 w-4/5 rounded-full bg-violet-600/10 px-4 text-center text-slate-200 shadow-inner outline-none ring-1 ring-violet-500 hover:shadow-violet-50 xxs:h-12;
   }
   .card-container {
     @apply flex max-h-64 w-80 flex-col items-center space-y-4 rounded-xl bg-gray-900 p-5;

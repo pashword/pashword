@@ -13,7 +13,7 @@ module.exports = {
     },
     extend: {
       animation: {
-        blob: "blob 17s ease infinite",
+        blob: "blob 10s ease infinite",
       },
       width: {
         128: "32rem",
@@ -34,16 +34,13 @@ module.exports = {
       keyframes: {
         blob: {
           "0%": {
-            transform: "translate(0px, 0px) scale(1)",
+            transform: "scale(1)",
           },
-          "33%": {
-            transform: "translate(0px, -50px) scale(1.1)",
-          },
-          "66%": {
-            transform: "translate(-60px, -40px) scale(0.9)",
+          "50%": {
+            transform: "scale(2)",
           },
           "100%": {
-            transform: "tranlate(0px, 0px) scale(1)",
+            transform: "scale(1)",
           },
         },
       },

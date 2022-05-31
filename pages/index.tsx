@@ -43,19 +43,28 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="relative overflow-x-hidden">
-      <div className="page-root relative overflow-hidden bg-slate-1000">
-        <div className="absolute top-[15%] left-[40%] h-96 w-96 animate-blob rounded-full bg-purple-500 opacity-50 mix-blend-difference blur-6xl filter"></div>
-        <div className="absolute top-[17%] left-[45%] h-1/2 w-96 animate-blob rounded-full bg-sky-500 opacity-50 mix-blend-difference blur-6xl filter"></div>
-        <div className="absolute top-[35%] left-[50%] h-96 w-96 animate-blob rounded-full bg-purple-500 opacity-50 mix-blend-difference blur-6xl filter"></div>
-        <div className="absolute top-[35%] left-[40%] h-1/2 w-96 animate-blob rounded-full bg-sky-500 opacity-50 mix-blend-difference blur-6xl filter"></div>
+    <div className="relative overflow-x-hidden bg-gradient-to-br from-[#1e0928] to-[#1c1630]">
+      <div className="page-root relative overflow-hidden bg-gradient-to-br ">
+        {/* <div className="absolute top-[15%] left-[35%] h-96 w-96 animate-blob rounded-full bg-purple-500 opacity-50 mix-blend-exclusion blur-6xl filter"></div>
+        <div className="absolute top-[15%] left-[50%] h-96 w-96 animate-blob rounded-full bg-sky-500 opacity-50 mix-blend-exclusion blur-6xl filter"></div> */}
+
+        <div className="fixed top-[15%] left-[55%] h-96 w-96 rounded-full bg-violet-500 opacity-30 mix-blend-exclusion blur-6xl filter"></div>
+
+        <div className="fixed left-[40%] h-4/5 w-96 -rotate-45 animate-blob rounded-full bg-gradient-to-t from-red-500 to-blue-600 opacity-30 blur-6xl"></div>
+
+        <div className="fixed left-[80%] -top-[30%] h-4/5 w-96 -rotate-45 animate-blob rounded-full bg-gradient-to-t from-red-500 to-blue-600 opacity-30 blur-6xl"></div>
+        <div className="fixed -left-[10%] -bottom-[20%] h-4/5 w-96 rotate-45 animate-blob rounded-full bg-gradient-to-t from-red-500 to-blue-600 opacity-30 blur-6xl"></div>
+
+        <div className="fixed top-[35%] left-[40%] h-1/2 w-96 animate-blob rounded-full bg-sky-500 opacity-30 mix-blend-exclusion blur-6xl filter"></div>
+
+        <div className="fixed bottom-10 right-10 h-96 w-24 rotate-45 transform animate-blob bg-sky-500 opacity-50 mix-blend-exclusion blur-6xl filter first-letter:rounded-full"></div>
 
         {/* SECTION 1 */}
         <main className="flex flex-col items-center justify-center">
-          <h1 className="z-10 text-2xl font-bold text-slate-50 mix-blend-overlay xxs:text-6xl xs:text-7xl sm:text-8xl">
+          <h1 className="z-10 text-2xl font-bold text-slate-50 xxs:text-6xl xs:text-7xl sm:text-8xl">
             Pashword
           </h1>
-          <h5 className="z-10 text-center text-xs text-slate-300 mix-blend-overlay xs:self-end sm:text-xl">
+          <h5 className="z-10 text-center text-xs font-medium text-slate-300  xs:self-end sm:text-xl">
             Passwords done right
           </h5>
           <form
@@ -63,7 +72,7 @@ const Home: NextPage = () => {
             onSubmit={submitHandler}
           >
             <div className="flex w-full flex-col items-center justify-center">
-              <label className="input-label">Website Name</label>
+              <label className="input-label">Website</label>
               <input
                 type="text"
                 name="website"
@@ -85,9 +94,7 @@ const Home: NextPage = () => {
               />
             </div>
             <div className="flex w-full flex-col items-center justify-center">
-              <label className="input-label">
-                Secret Code - Same for all Pashwords
-              </label>
+              <label className="input-label">Secret Code</label>
               <input
                 type="text"
                 name="passphrase"
@@ -97,10 +104,7 @@ const Home: NextPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button
-              type="submit"
-              className="z-10 mt-7 h-8 w-4/5 rounded-full bg-violet-600 px-4 text-center text-gray-100 outline-none ring-2 ring-violet-700 hover:from-red-700 hover:ring-violet-900 focus:ring-cyan-300 xxs:h-12"
-            >
+            <button type="submit" className="submit-button">
               Get Pashword 😎
             </button>
           </form>
