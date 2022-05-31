@@ -9,11 +9,13 @@
     "base85": "^3.1.0",
     "big-integer": "^1.6.51",
     "bigint-conversion": "^2.2.1",
+    "framer-motion": "^6.3.6",
     "jssha": "^3.2.0",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "react-parallax-tilt": "^1.7.38"
   },
   "devDependencies": {
     "@types/node": "17.0.4",

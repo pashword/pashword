@@ -13,7 +13,7 @@ module.exports = {
     },
     extend: {
       animation: {
-        blob: "blob 10s ease infinite",
+        blob: "blob 10s infinite ease",
       },
       width: {
         128: "32rem",
