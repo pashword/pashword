@@ -7,6 +7,7 @@ import { BiCopy, BiMouse } from "react-icons/bi";
 import Tilt from "react-parallax-tilt";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import StepsSection from "../components/StepsSection";
 
 const Home: NextPage = () => {
   const [website, setWebsite] = useState("");
@@ -142,6 +143,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <HeroSection />
+      <StepsSection />
       <ToastContainer position="top-center" theme="colored" />
     </div>
   );
