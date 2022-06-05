@@ -10,7 +10,7 @@ import { RiCloudOffLine, RiDownloadCloudFill } from "react-icons/ri";
 
 const HeroSection = () => {
   return (
-    <section className="page-root snap-start bg-slate-1000 text-slate-50">
+    <section className="page-root snap-start bg-gradient-to-tr from-[#0d0511] to-[#090e14] text-slate-50">
       <h1 className="z-10 bg-gradient-to-r from-amber-400 via-green-400 to-blue-400 bg-clip-text text-8xl font-bold text-transparent">
         Passwords Are Dead
       </h1>

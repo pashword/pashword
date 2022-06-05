@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       animation: {
         blob: "blob 10s infinite ease",
+        updown: "updown 2s infinite ease",
       },
       width: {
         128: "32rem",
@@ -41,6 +42,16 @@ module.exports = {
           },
           "100%": {
             transform: "scale(1)",
+          },
+        },
+        updown: {
+          "0%": {
+            transform: "translateY(0)",
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateY(50%)",
+            opacity: 1,
           },
         },
       },

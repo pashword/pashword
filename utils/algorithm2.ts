@@ -39,7 +39,6 @@ export const generatePashword = (
     // append the character from encoded string to pashword
     pashword += encodedHash[i];
   }
-  console.log("🚀 => pashword", pashword);
 
   return pashword;
 };
