@@ -14,6 +14,8 @@ module.exports = {
     extend: {
       animation: {
         blob: "blob 10s infinite ease",
+        blob2: "blob 15s infinite ease",
+        blob3: "blob 7s infinite ease",
         updown: "updown 2s infinite ease",
       },
       width: {

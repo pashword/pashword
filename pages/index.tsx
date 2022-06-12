@@ -15,11 +15,14 @@ const Home: NextPage = () => {
   const [password, setPassword] = useState("");
   const [pashword, setPashword] = useState("");
   const [backgroundIndex, setBackgroundIndex] = useState(0);
+  const [opacity, setOpacity] = useState(1);
 
   const websiteRegex = /[a-z\-\_]/;
 
   useEffect(() => {
-    const handleScroll = () => {};
+    const handleScroll = () => {
+      setOpacity(1 - (window.scrollY * 1.7) / window.innerHeight);
+    };
 
     window.addEventListener("scroll", handleScroll);
 
@@ -61,10 +64,11 @@ const Home: NextPage = () => {
       <div className="animate page-root animate relative snap-start bg-gradient-to-br">
         {/* GRADIENT MESH */}
         <div className="absolute top-[15%] left-[55%] h-96 w-96 rounded-full bg-cyan-500 opacity-30 mix-blend-exclusion blur-6xl filter"></div>
-        <div className="absolute left-[40%] h-4/5 w-96 -rotate-45 animate-blob rounded-full bg-gradient-to-t from-cyan-500 to-violet-600 opacity-30 blur-6xl"></div>
+
+        <div className="absolute left-[40%] h-4/5 w-96 -rotate-45 animate-blob2 rounded-full bg-gradient-to-t from-cyan-500 to-violet-600 opacity-30 blur-6xl"></div>
         <div className="absolute left-[80%] -top-[30%] h-4/5 w-96 -rotate-45 animate-blob rounded-full bg-gradient-to-t from-cyan-500 to-purple-600 opacity-30 blur-6xl"></div>
-        <div className="absolute -left-[10%] -bottom-[20%] h-4/5 w-96 rotate-45 animate-blob rounded-full bg-gradient-to-t from-purple-500 to-cyan-600 opacity-30 blur-6xl"></div>
-        <div className="absolute top-[35%] left-[40%] h-1/2 w-96 animate-blob rounded-full bg-purple-500 opacity-30 mix-blend-exclusion blur-6xl filter"></div>
+        <div className="absolute -left-[10%] -bottom-[20%] h-4/5 w-96 rotate-45 animate-blob3 rounded-full bg-gradient-to-t from-purple-500 to-cyan-600 opacity-30 blur-6xl"></div>
+        <div className="absolute top-[35%] left-[40%] h-1/2 w-96 animate-blob2 rounded-full bg-purple-500 opacity-30 mix-blend-exclusion blur-6xl filter"></div>
         <div className="absolute bottom-10 right-10 h-96 w-24 rotate-45 transform animate-blob bg-purple-500 opacity-50 mix-blend-exclusion blur-6xl filter first-letter:rounded-full"></div>
 
         {/* TOP SECTION */}
@@ -137,7 +141,10 @@ const Home: NextPage = () => {
             </div>
           </form>
         </main>
-        <div className="absolute bottom-5 flex flex-col items-center gap-5 text-slate-400">
+        <div
+          className={`absolute bottom-5 flex flex-col items-center gap-5 text-slate-400`}
+          style={{ opacity: opacity }}
+        >
           <BiMouse className="animate-updown text-2xl" />
           Scroll to Learn More
         </div>

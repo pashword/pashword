@@ -8,9 +8,6 @@
     font-family: Poppins, system-ui, sans-serif;
     @apply bg-black;
   }
-  * {
-    @apply transition-all duration-300 ease-in-out;
-  }
 }
 
 @layer components {
@@ -21,13 +18,13 @@
     @apply flex min-h-screen w-screen flex-col items-center justify-center;
   }
   .input-text {
-    @apply h-8 w-4/5 rounded-full bg-slate-400/20 px-4 text-center text-slate-200 outline-none ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
+    @apply animate h-8 w-4/5 rounded-full bg-slate-400/20 px-4 text-center text-slate-200 outline-none ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
   }
   .input-label {
     @apply mb-1 text-slate-400 sm:ml-16 sm:self-start;
   }
   .submit-button {
-    @apply z-10 mt-4 h-8 w-4/5 rounded-full bg-violet-600 px-4 text-center font-medium text-slate-200 outline-none ring-violet-500 hover:shadow-lg hover:shadow-violet-500/30 hover:ring-1 hover:ring-violet-300 xxs:h-12;
+    @apply animate z-10 mt-4 h-8 w-4/5 rounded-full bg-violet-600 px-4 text-center font-medium text-slate-200 outline-none ring-violet-500 hover:shadow-lg hover:shadow-violet-500/30 hover:ring-1 hover:ring-violet-300 xxs:h-12;
   }
   .card-container {
     @apply flex max-h-64 w-80 flex-col items-center space-y-4 rounded-xl bg-gray-900 p-5;
@@ -56,6 +53,6 @@
     }
   }
   .progress-point {
-    @apply flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full font-bold;
+    @apply flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full font-bold;
   }
 }
