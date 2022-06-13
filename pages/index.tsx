@@ -8,6 +8,9 @@ import Tilt from "react-parallax-tilt";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StepsSection from "../components/StepsSection";
+import Section1 from "../components/Section1";
+import Section2 from "../components/Section2";
+import Section3 from "../components/Section3";
 
 const Home: NextPage = () => {
   const [website, setWebsite] = useState("");
@@ -60,17 +63,8 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="relative snap-y snap-mandatory overflow-x-hidden bg-gradient-to-br from-[#0d0511] to-[#090e14]">
-      <div className="animate page-root animate relative snap-start bg-gradient-to-br">
-        {/* GRADIENT MESH */}
-        <div className="absolute top-[15%] left-[55%] h-96 w-96 rounded-full bg-cyan-500 opacity-30 mix-blend-exclusion blur-6xl filter"></div>
-
-        <div className="absolute left-[40%] h-4/5 w-96 -rotate-45 animate-blob2 rounded-full bg-gradient-to-t from-cyan-500 to-violet-600 opacity-30 blur-6xl"></div>
-        <div className="absolute left-[80%] -top-[30%] h-4/5 w-96 -rotate-45 animate-blob rounded-full bg-gradient-to-t from-cyan-500 to-purple-600 opacity-30 blur-6xl"></div>
-        <div className="absolute -left-[10%] -bottom-[20%] h-4/5 w-96 rotate-45 animate-blob3 rounded-full bg-gradient-to-t from-purple-500 to-cyan-600 opacity-30 blur-6xl"></div>
-        <div className="absolute top-[35%] left-[40%] h-1/2 w-96 animate-blob2 rounded-full bg-purple-500 opacity-30 mix-blend-exclusion blur-6xl filter"></div>
-        <div className="absolute bottom-10 right-10 h-96 w-24 rotate-45 transform animate-blob bg-purple-500 opacity-50 mix-blend-exclusion blur-6xl filter first-letter:rounded-full"></div>
-
+    <div className="overflow-x-hidden bg-gradient-to-br from-[#0d0511] to-[#090e14]">
+      <div className="animate page-root animate relative bg-gradient-to-br">
         {/* TOP SECTION */}
         <main className="flex flex-col items-center justify-center">
           {/* LOGO */}
@@ -141,6 +135,13 @@ const Home: NextPage = () => {
             </div>
           </form>
         </main>
+        {/* GRADIENT MESH */}
+        <div className="absolute top-[15%] left-[55%] z-0 h-96 w-52 rounded-full bg-cyan-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96"></div>
+        <div className="absolute left-[40%] z-0 h-4/5 w-24 -rotate-45 animate-blob2 rounded-full bg-gradient-to-t from-cyan-500 to-violet-600 opacity-30 blur-6xl sm:w-96"></div>
+        <div className="absolute left-[80%] -top-[30%] z-0 h-4/5 w-24 -rotate-45 animate-blob rounded-full bg-gradient-to-t from-cyan-500 to-purple-600 opacity-30 blur-6xl sm:w-96"></div>
+        <div className="absolute -left-[10%] -bottom-[20%] z-0 h-4/5 w-24 rotate-45 animate-blob3 rounded-full bg-gradient-to-t from-purple-500 to-cyan-600 opacity-30 blur-6xl sm:w-96"></div>
+        <div className="absolute top-[35%] left-[40%] z-0 h-1/2 w-24 animate-blob2 rounded-full bg-purple-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96"></div>
+        <div className="absolute bottom-10 right-10 z-0 h-96 w-24 rotate-45 transform animate-blob bg-purple-500 opacity-50 mix-blend-exclusion blur-6xl filter first-letter:rounded-full"></div>
         <div
           className={`absolute bottom-5 flex flex-col items-center gap-5 text-slate-400`}
           style={{ opacity: opacity }}
@@ -149,8 +150,9 @@ const Home: NextPage = () => {
           Scroll to Learn More
         </div>
       </div>
-      <HeroSection />
-      <StepsSection />
+      <Section1 />
+      <Section2 />
+      <Section3 />
       <ToastContainer position="top-center" theme="colored" />
     </div>
   );
