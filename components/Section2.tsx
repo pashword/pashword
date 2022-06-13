@@ -7,7 +7,7 @@ const Section2 = () => {
   });
 
   return (
-    <section className="page-root flex gap-10 bg-gradient-to-tr from-[#090e14] to-[#0d0511] pt-20 text-slate-50 sm:gap-20">
+    <section className="page-root flex gap-10 bg-gradient-to-tr from-[#090e14] to-[#0d0511] pt-20 text-slate-50 sm:gap-20 md:pt-0">
       <div className="z-10 px-2 text-center sm:px-0">
         <h1 className="z-10 bg-gradient-to-r from-blue-400 via-pink-400 to-orange-400 bg-clip-text text-2xl font-bold text-transparent xxs:text-5xl sm:text-8xl">
           The Key is the Key
