@@ -12,6 +12,8 @@ import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
 import Image from "next/image";
+import Footer from "../components/Footer";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 const Home: NextPage = () => {
   const [website, setWebsite] = useState("");
@@ -65,14 +67,15 @@ const Home: NextPage = () => {
 
   return (
     <div className="overflow-x-hidden bg-gradient-to-br from-[#0d0511] to-[#090e14]">
-      <div className="animate page-root animate relative bg-gradient-to-br">
+      <HiOutlineMenuAlt3 className="absolute top-2 right-2 z-10 cursor-pointer text-3xl text-slate-50" />
+      <div className="animate page-root animate relative">
         {/* TOP SECTION */}
         <main className="flex flex-col items-center justify-center">
           {/* LOGO */}
           <h1 className="background-animate z-10 text-2xl font-bold text-slate-50 xxs:text-6xl xs:text-7xl sm:text-8xl">
             Pashword
           </h1>
-          <h5 className="z-10 text-center text-xs font-semibold text-slate-400 xxs:text-lg xs:self-end sm:text-xl">
+          <h5 className="z-10 text-center text-xs font-medium text-slate-400 xxs:text-lg xs:self-end sm:text-xl">
             Passwords done right
           </h5>
 
@@ -157,12 +160,13 @@ const Home: NextPage = () => {
           Scroll to Learn More
         </div>
       </div>
-      <div className="bg-gradient-to-br from-[#090e14] to-[#0d0511] pt-10">
+      <div className="pt-10">
         <img src="/infographic1.svg" className="mx-auto" />
       </div>
       <Section1 />
       <Section2 />
       <Section3 />
+      <Footer />
       <ToastContainer position="top-center" theme="colored" />
     </div>
   );

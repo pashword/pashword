@@ -7,7 +7,7 @@ const Section1 = () => {
   });
 
   return (
-    <section className="page-root flex gap-10 bg-gradient-to-tr from-[#0d0511] to-[#090e14] pt-20 text-slate-50 sm:gap-20 md:pt-0">
+    <section className="page-root flex gap-10 pt-20 text-slate-50 sm:gap-20 md:pt-0">
       <div className="z-10 px-2 text-center sm:px-0">
         <h1 className="z-10 bg-gradient-to-r from-amber-400 via-green-400 to-blue-400 bg-clip-text text-2xl font-bold text-transparent xxs:text-5xl sm:text-8xl">
           Passwords are Dead
