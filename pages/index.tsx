@@ -14,6 +14,7 @@ import Section3 from "../components/Section3";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import Menu from "../components/Menu";
 
 const Home: NextPage = () => {
   const [website, setWebsite] = useState("");
