@@ -11,6 +11,7 @@ import StepsSection from "../components/StepsSection";
 import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   const [website, setWebsite] = useState("");
