@@ -16,7 +16,6 @@ import Footer from "../components/Footer";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import Menu from "../components/Menu";
 
-const showBackgroundShapes = false;
 const Home: NextPage = () => {
   const [website, setWebsite] = useState("");
   const [username, setUsername] = useState("");
@@ -24,6 +23,7 @@ const Home: NextPage = () => {
   const [pashword, setPashword] = useState("");
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [opacity, setOpacity] = useState(1);
+  const showBackgroundShapes = false;
 
   const websiteRegex = /[a-z\-\_]/;
 
