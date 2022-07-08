@@ -6,11 +6,18 @@
 @layer base {
   html {
     font-family: Poppins, system-ui, sans-serif;
-    @apply bg-black;
+  }
+  body {
+    @apply bg-gradient-to-br from-[#0d0511] to-[#090e14];
   }
 }
 
 @layer components {
+  .background-image {
+    background-image: url("../public/bg.png");
+    background-size: cover;
+    @apply animate-bg;
+  }
   .animate {
     @apply transition-all duration-300 ease-in-out;
   }

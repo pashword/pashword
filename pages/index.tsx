@@ -16,6 +16,7 @@ import Footer from "../components/Footer";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import Menu from "../components/Menu";
 
+const showBackgroundShapes = false;
 const Home: NextPage = () => {
   const [website, setWebsite] = useState("");
   const [username, setUsername] = useState("");
@@ -67,9 +68,9 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="overflow-x-hidden bg-gradient-to-br from-[#0d0511] to-[#090e14]">
+    <div className="overflow-x-hidden">
       <HiOutlineMenuAlt3 className="absolute top-2 right-2 z-10 cursor-pointer text-3xl text-slate-50" />
-      <div className="animate page-root animate relative">
+      <div className="background-image animate page-root animate relative">
         {/* TOP SECTION */}
         <main className="flex flex-col items-center justify-center">
           {/* LOGO */}
@@ -91,11 +92,11 @@ const Home: NextPage = () => {
                 type="text"
                 name="website"
                 className="input-text"
-                placeholder="Example: reddit, google"
+                placeholder="Example: reddit.com, forum.zorin.com"
                 value={website}
                 onChange={(e) => {
                   setWebsite(
-                    e.target.value.toLowerCase().replace(/[^a-z0-9\-]/, "")
+                    e.target.value.toLowerCase().replace(/[^a-z0-9\.\-]/, "")
                   );
                 }}
               />
@@ -140,18 +141,23 @@ const Home: NextPage = () => {
             </div>
           </form>
         </main>
-        {/* MID TOP RIGHT CYAN */}
-        <div className="absolute top-[15%] left-[55%] z-0 h-96 w-52 rounded-full bg-cyan-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96"></div>
-        {/* CENTER VIOLET */}
-        <div className="absolute left-[40%] z-0 h-4/5 w-24 -rotate-45 rounded-full bg-gradient-to-t from-cyan-500 to-violet-600 opacity-30 blur-6xl sm:w-96 md:animate-blob2"></div>
-        {/* RIGHT TOP CORNER BLUE PURPLE */}
-        <div className="absolute left-[80%] -top-[30%] z-0 h-4/5 w-24 -rotate-45 rounded-full bg-gradient-to-t from-cyan-500 to-purple-600 opacity-30 blur-6xl sm:w-96 md:animate-blob"></div>
-        {/* LEFT PURPLE BLUE */}
-        <div className="absolute -left-[10%] -bottom-[20%] z-0 h-4/5 w-24 rotate-45 rounded-full bg-gradient-to-t from-purple-500 to-cyan-600 opacity-30 blur-6xl sm:w-96 md:animate-blob3"></div>
-        {/* CENTER PURPLE */}
-        <div className="absolute top-[35%] left-[40%] z-0 h-1/2 w-24 rounded-full bg-purple-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96 md:animate-blob2"></div>
-        {/* BOTTOM RIGHT PURPLE */}
-        <div className="absolute bottom-10 right-10 z-0 h-96 w-24 rotate-45 transform bg-purple-500 opacity-50 mix-blend-exclusion blur-6xl filter first-letter:rounded-full md:animate-blob"></div>
+
+        {showBackgroundShapes && (
+          <>
+            {/* MID TOP RIGHT CYAN */}
+            <div className="absolute top-[15%] left-[55%] z-0 h-96 w-52 rounded-full bg-cyan-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96"></div>
+            {/* CENTER VIOLET */}
+            <div className="absolute left-[40%] z-0 h-4/5 w-24 -rotate-45 rounded-full bg-gradient-to-t from-cyan-500 to-violet-600 opacity-30 blur-6xl sm:w-96 md:animate-blob2"></div>
+            {/* RIGHT TOP CORNER BLUE PURPLE */}
+            <div className="absolute left-[80%] -top-[30%] z-0 h-4/5 w-24 -rotate-45 rounded-full bg-gradient-to-t from-cyan-500 to-purple-600 opacity-30 blur-6xl sm:w-96 md:animate-blob"></div>
+            {/* LEFT PURPLE BLUE */}
+            <div className="absolute -left-[10%] -bottom-[20%] z-0 h-4/5 w-24 rotate-45 rounded-full bg-gradient-to-t from-purple-500 to-cyan-600 opacity-30 blur-6xl sm:w-96 md:animate-blob3"></div>
+            {/* CENTER PURPLE */}
+            <div className="absolute top-[35%] left-[40%] z-0 h-1/2 w-24 rounded-full bg-purple-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96 md:animate-blob2"></div>
+            {/* BOTTOM RIGHT PURPLE */}
+            <div className="absolute bottom-10 right-10 z-0 h-96 w-24 rotate-45 transform bg-purple-500 opacity-50 mix-blend-exclusion blur-6xl filter first-letter:rounded-full md:animate-blob"></div>
+          </>
+        )}
 
         <div
           className={`absolute bottom-5 flex flex-col items-center gap-5 text-slate-400`}
@@ -162,10 +168,13 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="pt-10">
-        <img src="/infographic1.svg" className="mx-auto" />
+        <img src="/why-pashword.svg" className="mx-auto" />
       </div>
       <Section1 />
       <Section2 />
+      <div className="pt-10">
+        <img src="/how-it-works.svg" className="mx-auto" />
+      </div>
       <Section3 />
       <Footer />
       <ToastContainer position="top-center" theme="colored" />

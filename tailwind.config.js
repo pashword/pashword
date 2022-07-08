@@ -13,7 +13,8 @@ module.exports = {
     },
     extend: {
       animation: {
-        blob: "blob 10s infinite ease",
+        bg: "bg 50s infinite ease",
+        blob: "blob 25s infinite ease",
         blob2: "blob 15s infinite ease",
         blob3: "blob 7s infinite",
         updown: "updown 2s infinite ease",
@@ -37,13 +38,24 @@ module.exports = {
       keyframes: {
         blob: {
           "0%": {
-            transform: "scale(1)",
+            backgroundPosition: "0%",
           },
           "50%": {
-            transform: "scale(2)",
+            backgroundPosition: "100%",
           },
           "100%": {
-            transform: "scale(1)",
+            backgroundPosition: "0%",
+          },
+        },
+        bg: {
+          "0%": {
+            backgroundPosition: "0%",
+          },
+          "50%": {
+            backgroundPosition: "100%",
+          },
+          "100%": {
+            backgroundPosition: "0%",
           },
         },
         updown: {
