@@ -167,15 +167,15 @@ const Home: NextPage = () => {
           Scroll to Learn More
         </div>
       </div>
-      <div className="pt-10">
+      <Section1 />
+      <div className="mt-20">
         <img src="/why-pashword.svg" className="mx-auto" />
       </div>
-      <Section1 />
       <Section2 />
-      <div className="pt-10">
+      <Section3 />
+      <div className="mb-20 px-10">
         <img src="/how-it-works.svg" className="mx-auto" />
       </div>
-      <Section3 />
       <Footer />
       <ToastContainer position="top-center" theme="colored" />
     </div>

@@ -13,9 +13,11 @@
     "framer-motion": "^6.3.6",
     "jssha": "^3.2.0",
     "next": "latest",
+    "next-pwa": "^5.5.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-intersection-observer": "^9.3.5",
     "react-parallax-tilt": "^1.7.38",
     "react-toastify": "^9.0.3"
   },

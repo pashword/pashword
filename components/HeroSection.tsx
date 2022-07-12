@@ -6,7 +6,6 @@ import {
   FaSuperpowers,
 } from "react-icons/fa";
 import { GoGistSecret } from "react-icons/go";
-import { RiCloudOffLine, RiDownloadCloudFill } from "react-icons/ri";
 
 const HeroSection = () => {
   return (
@@ -20,6 +19,9 @@ const HeroSection = () => {
           Pashword is the Future
         </span>{" "}
       </h2>
+      <div>
+        <img src="/with-without-pashword.svg" className="mx-auto" />
+      </div>
       <div className="z-10 mt-10 flex flex-col space-y-5 text-center">
         <h3 className="text-xl font-semibold text-slate-300">Why?</h3>
         <div className="container flex flex-wrap justify-center gap-5 ">
