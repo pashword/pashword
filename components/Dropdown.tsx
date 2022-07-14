@@ -4,9 +4,7 @@ import { HiOutlineSelector } from "react-icons/hi";
 import React from "react";
 
 interface IProps {
-  openDropdown: boolean;
   passwordLength: number;
-  setOpenDropdown: (arg: boolean) => void;
   setPasswordLength: (arg: number) => void;
 }
 
