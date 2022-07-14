@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.6",
     "@lottiefiles/lottie-player": "^1.5.7",
     "base85": "^3.1.0",
     "big-integer": "^1.6.51",

@@ -1,31 +1,27 @@
-import type { NextPage } from "next";
-import React, { useEffect, useState } from "react";
-import HeroSection from "../components/HeroSection";
+import { HiOutlineMenuAlt3, HiOutlineSelector } from "react-icons/hi";
+import PASSWORD_LENGTH from "../constants/passwordLength";
 import { generatePashword } from "../utils/algorithm2";
-import { motion, AnimatePresence } from "framer-motion";
-import { BiCopy, BiMouse } from "react-icons/bi";
-import Tilt from "react-parallax-tilt";
 import { ToastContainer, toast } from "react-toastify";
+import React, { useEffect, useState } from "react";
+import { BiCopy, BiMouse } from "react-icons/bi";
 import "react-toastify/dist/ReactToastify.css";
-import StepsSection from "../components/StepsSection";
 import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
-import Image from "next/image";
+import Dropdown from "../components/Dropdown";
 import Footer from "../components/Footer";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import Menu from "../components/Menu";
+import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   const [website, setWebsite] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [pashword, setPashword] = useState("");
+  const [openDropdown, setOpenDropdown] = useState(false);
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [opacity, setOpacity] = useState(1);
   const showBackgroundShapes = false;
-
-  const websiteRegex = /[a-z\-\_]/;
+  const [passwordLength, setPasswordLength] = useState(PASSWORD_LENGTH.LARGE);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +56,10 @@ const Home: NextPage = () => {
       return;
     }
 
-    let pashedPassword = generatePashword(JSON.stringify(toHash), 20);
+    let pashedPassword = generatePashword(
+      JSON.stringify(toHash),
+      passwordLength
+    );
 
     setPashword(pashedPassword);
     window.navigator.clipboard.writeText(pashedPassword);
@@ -72,7 +71,7 @@ const Home: NextPage = () => {
       <HiOutlineMenuAlt3 className="absolute top-2 right-2 z-10 cursor-pointer text-3xl text-slate-50" />
       <div className="background-image animate page-root animate relative">
         {/* TOP SECTION */}
-        <main className="flex flex-col items-center justify-center">
+        <main className="flex flex-col items-center justify-center pt-10">
           {/* LOGO */}
           <h1 className="background-animate z-10 text-2xl font-bold text-slate-50 xxs:text-6xl xs:text-7xl sm:text-8xl">
             Pashword
@@ -121,6 +120,15 @@ const Home: NextPage = () => {
                 placeholder="Example: mylittlepony"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="relative flex w-full flex-col items-center justify-center">
+              <label className="input-label">Pashword Length</label>
+              <Dropdown
+                openDropdown={openDropdown}
+                setOpenDropdown={setOpenDropdown}
+                passwordLength={passwordLength}
+                setPasswordLength={setPasswordLength}
               />
             </div>
             <button type="submit" className="submit-button">

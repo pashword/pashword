@@ -25,7 +25,7 @@
     @apply flex min-h-screen w-screen flex-col items-center justify-center;
   }
   .input-text {
-    @apply animate h-8 w-4/5 rounded-full bg-slate-400/20 px-4 text-center text-slate-200 outline-none ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
+    @apply animate h-8 w-4/5 rounded-full bg-slate-400/20 px-4 text-center text-slate-200 shadow-slate-400/30 outline-none ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
   }
   .input-label {
     @apply mb-1 text-slate-400 sm:ml-16 sm:self-start;
@@ -43,23 +43,62 @@
     @apply text-slate-300;
   }
 
-  .background-animate {
-    background-size: 400%;
-
-    -webkit-animation: AnimationName 3s ease infinite;
-    -moz-animation: AnimationName 3s ease infinite;
-    animation: AnimationName 3s ease infinite;
-  }
-  @keyframes AnimationName {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
   .progress-point {
     @apply flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full font-bold;
+  }
+
+  /*ANIMATION CLASSES*/
+  .scale-in-fade {
+    animation-duration: 1s;
+    animation-name: scale-in-fade-animation;
+  }
+  @keyframes scale-in-fade-animation {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  .fade-in {
+    animation-duration: 1s;
+    animation-name: fade-in-animation;
+  }
+  @keyframes fade-in-animation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .fade-out {
+    animation-duration: 1s;
+    animation-name: fade-out-animation;
+  }
+  @keyframes fade-out-animation {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .fade-in-left {
+    animation-duration: 1s;
+    animation-name: fade-in-left-animation;
+  }
+  @keyframes fade-in-left-animation {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
