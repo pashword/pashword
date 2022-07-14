@@ -1,6 +1,8 @@
 import { Listbox, Transition } from "@headlessui/react";
 import PASSWORD_LENGTH from "../constants/passwordLength";
+import { HiOutlineSelector } from "react-icons/hi";
 import React from "react";
+
 interface IProps {
   openDropdown: boolean;
   passwordLength: number;
@@ -8,18 +10,14 @@ interface IProps {
   setPasswordLength: (arg: number) => void;
 }
 
-const Dropdown = ({
-  openDropdown,
-  setOpenDropdown,
-  passwordLength,
-  setPasswordLength,
-}: IProps) => {
+const Dropdown = ({ passwordLength, setPasswordLength }: IProps) => {
   return (
     <Listbox value={0} onChange={setPasswordLength}>
       <Listbox.Button className="input-text flex items-center justify-between px-5">
         {passwordLength === PASSWORD_LENGTH.SMALL && "Small"}
         {passwordLength === PASSWORD_LENGTH.MEDIUM && "Medium"}
         {passwordLength === PASSWORD_LENGTH.LARGE && "Large (Recommended)"}
+        <HiOutlineSelector className="text-xl" />
       </Listbox.Button>
       <Listbox.Options className="absolute top-full z-20 mt-1 flex w-4/5 flex-col rounded-xl bg-slate-700/90 text-slate-100 shadow-lg outline-none ring-1 ring-slate-200 backdrop-blur-xl">
         <Listbox.Option key={0} value={PASSWORD_LENGTH.SMALL}>

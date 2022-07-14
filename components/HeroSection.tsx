@@ -1,75 +1,168 @@
-import React from "react";
-import {
-  FaCloud,
-  FaCrown,
-  FaHandsHelping,
-  FaSuperpowers,
-} from "react-icons/fa";
-import { GoGistSecret } from "react-icons/go";
+import { generatePashword } from "../utils/algorithm2";
+import React, { useEffect, useState } from "react";
+import { BiCopy, BiMouse } from "react-icons/bi";
+import { toast } from "react-toastify";
+import Dropdown from "./Dropdown";
 
-const HeroSection = () => {
+interface IProps {
+  passwordLength: number;
+  setPasswordLength: (arg: number) => void;
+}
+
+const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
+  const [opacity, setOpacity] = useState(1);
+  const [website, setWebsite] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [pashword, setPashword] = useState("");
+  const showBackgroundShapes = false;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOpacity(1 - (window.scrollY * 1.7) / window.innerHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    let toHash = {
+      website,
+      username,
+      password,
+    };
+
+    if (website.length < 1) {
+      toast.error("Please enter a website");
+      return;
+    }
+    if (username.length < 1) {
+      toast.error("Please enter a username");
+      return;
+    }
+    if (password.length < 1) {
+      toast.error("Please enter a password");
+      return;
+    }
+
+    let pashedPassword = generatePashword(
+      JSON.stringify(toHash),
+      passwordLength
+    );
+
+    setPashword(pashedPassword);
+    window.navigator.clipboard.writeText(pashedPassword);
+    toast.success("Pashword copied to clipboard!");
+  };
+
   return (
-    <section className="page-root z-10 snap-start bg-gradient-to-tr from-[#0d0511] to-[#090e14] text-slate-50">
-      <h1 className="z-10 bg-gradient-to-r from-amber-400 via-green-400 to-blue-400 bg-clip-text text-8xl font-bold text-transparent">
-        Passwords Are Dead
-      </h1>
-      <h2 className="z-10 text-3xl font-medium text-slate-500">
-        Still stuck in the 90s?{" "}
-        <span className="font-semibold text-slate-300">
-          Pashword is the Future
-        </span>{" "}
-      </h2>
-      <div>
-        <img src="/with-without-pashword.svg" className="mx-auto" />
+    <div className="background-image animate page-root animate relative">
+      {/* TOP SECTION */}
+      <main className="flex flex-col items-center justify-center pt-10">
+        {/* LOGO */}
+        <h1 className="background-animate z-10 text-2xl font-bold text-slate-50 xxs:text-6xl xs:text-7xl sm:text-8xl">
+          Pashword
+        </h1>
+        <h5 className="z-10 text-center text-xs font-medium text-slate-400 xxs:text-lg xs:self-end sm:text-xl">
+          Passwords done right
+        </h5>
+
+        {/* FORM */}
+        <form
+          className="z-10 mt-5 flex w-full flex-col items-center justify-center gap-y-1 text-center text-xs xxs:gap-y-5 xxs:text-base"
+          onSubmit={submitHandler}
+        >
+          <div className="flex w-full flex-col items-center justify-center">
+            <label className="input-label">Website</label>
+            <input
+              type="text"
+              name="website"
+              className="input-text"
+              placeholder="Example: reddit.com, forum.zorin.com"
+              value={website}
+              onChange={(e) => {
+                setWebsite(
+                  e.target.value.toLowerCase().replace(/[^a-z0-9\.\-]/, "")
+                );
+              }}
+            />
+          </div>
+          <div className="flex w-full flex-col items-center justify-center">
+            <label className="input-label">Username</label>
+            <input
+              type="text"
+              name="username"
+              className="input-text"
+              placeholder="Example: nayamamarshe"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="flex w-full flex-col items-center justify-center">
+            <label className="input-label">Secret Code</label>
+            <input
+              type="password"
+              name="passphrase"
+              className="input-text"
+              placeholder="Example: mylittlepony"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="relative flex w-full flex-col items-center justify-center">
+            <label className="input-label">Pashword Length</label>
+            <Dropdown
+              passwordLength={passwordLength}
+              setPasswordLength={setPasswordLength}
+            />
+          </div>
+          <button type="submit" className="submit-button">
+            Get Pashword 😎
+          </button>
+          <div
+            className={`${
+              pashword.length < 1
+                ? "scale-y-0 opacity-0"
+                : "scale-y-100 opacity-100"
+            } animate relative mt-4 w-4/5 cursor-pointer rounded-xl bg-green-500 py-2 backdrop-blur-xl duration-500 hover:shadow-lg hover:shadow-green-400/30 hover:ring-1 hover:ring-green-200`}
+          >
+            <p className="select-none font-medium text-green-300">Pashword</p>
+            <p className="select-all font-medium text-green-100">{pashword}</p>
+            <BiCopy className="absolute right-3 top-5 select-none text-2xl text-green-300" />
+          </div>
+        </form>
+      </main>
+
+      {showBackgroundShapes && (
+        <>
+          {/* MID TOP RIGHT CYAN */}
+          <div className="absolute top-[15%] left-[55%] z-0 h-96 w-52 rounded-full bg-cyan-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96"></div>
+          {/* CENTER VIOLET */}
+          <div className="absolute left-[40%] z-0 h-4/5 w-24 -rotate-45 rounded-full bg-gradient-to-t from-cyan-500 to-violet-600 opacity-30 blur-6xl sm:w-96 md:animate-blob2"></div>
+          {/* RIGHT TOP CORNER BLUE PURPLE */}
+          <div className="absolute left-[80%] -top-[30%] z-0 h-4/5 w-24 -rotate-45 rounded-full bg-gradient-to-t from-cyan-500 to-purple-600 opacity-30 blur-6xl sm:w-96 md:animate-blob"></div>
+          {/* LEFT PURPLE BLUE */}
+          <div className="absolute -left-[10%] -bottom-[20%] z-0 h-4/5 w-24 rotate-45 rounded-full bg-gradient-to-t from-purple-500 to-cyan-600 opacity-30 blur-6xl sm:w-96 md:animate-blob3"></div>
+          {/* CENTER PURPLE */}
+          <div className="absolute top-[35%] left-[40%] z-0 h-1/2 w-24 rounded-full bg-purple-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96 md:animate-blob2"></div>
+          {/* BOTTOM RIGHT PURPLE */}
+          <div className="absolute bottom-10 right-10 z-0 h-96 w-24 rotate-45 transform bg-purple-500 opacity-50 mix-blend-exclusion blur-6xl filter first-letter:rounded-full md:animate-blob"></div>
+        </>
+      )}
+
+      <div
+        className={`absolute bottom-5 flex flex-col items-center gap-5 text-slate-400`}
+        style={{ opacity: opacity }}
+      >
+        <BiMouse className="animate-updown text-2xl" />
+        Scroll to Learn More
       </div>
-      <div className="z-10 mt-10 flex flex-col space-y-5 text-center">
-        <h3 className="text-xl font-semibold text-slate-300">Why?</h3>
-        <div className="container flex flex-wrap justify-center gap-5 ">
-          <div className="card-container">
-            <FaCrown className="text-lg" />
-            <h4 className="card-heading">One Pass to Rule them all</h4>
-            <p className="card-content">
-              Gone are the days of remembering multiple passwords. Pashword
-              generates your passwords for you, for your websites and usernames.
-            </p>
-          </div>
-          <div className="card-container">
-            <FaSuperpowers className="text-lg" />
-            <h4 className="card-heading">Pass of Steel</h4>
-            <p className="card-content">
-              Pashword is cryptographically secure. A password generated by
-              Pashword can take thousands of trillions of years to break, now
-              that, is strong.
-            </p>
-          </div>
-          <div className="card-container">
-            <GoGistSecret className="text-lg" />
-            <h4 className="card-heading">Your special secret</h4>
-            <p className="card-content">
-              Your pashword belongs only to you and no one else. Only you can
-              generate a pashword for your accounts.
-            </p>
-          </div>
-          <div className="card-container">
-            <FaHandsHelping className="text-lg" />
-            <h4 className="card-heading">Open Source</h4>
-            <p className="card-content">
-              Pashword is 100% Free and Open Source. It is transparent,
-              anonymous and privacy respecting by default.
-            </p>
-          </div>
-          <div className="card-container">
-            <FaCloud className="text-lg" />
-            <h4 className="card-heading">Works without Internet</h4>
-            <p className="card-content">
-              Pashword works without internet. All your pashwords are generated
-              locally on your computer and no connection is made to outside
-              servers. Everything stays on your device, secure.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 };
 
