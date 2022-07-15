@@ -11,14 +11,24 @@ import Footer from "../components/Footer";
 import React, { useState } from "react";
 import type { NextPage } from "next";
 import FAQ from "../components/FAQ";
+import Menu from "../components/Menu";
 
 const Home: NextPage = () => {
   const [passwordLength, setPasswordLength] = useState(PASSWORD_LENGTH.LARGE);
-
+  const [showMenu, setShowMenu] = useState(false);
   return (
-    <div className="overflow-x-hidden">
+    <div
+      className={`overflow-x-hidden ${showMenu && "h-screen overflow-hidden"}`}
+    >
       {/* MENU BUTTON */}
-      <HiOutlineMenuAlt3 className="absolute top-2 right-2 z-10 cursor-pointer text-3xl text-slate-50" />
+      <HiOutlineMenuAlt3
+        className="absolute top-2 right-2 z-10 cursor-pointer text-3xl text-white/80"
+        onClick={() => {
+          setShowMenu(true);
+        }}
+      />
+      <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
+
       {/* SECTIONS */}
       <HeroSection
         passwordLength={passwordLength}
@@ -31,7 +41,7 @@ const Home: NextPage = () => {
         source="/with-without-pashword.png"
       />
       <Section3 />
-      <Illustration className="px-10 pb-20" source="/how-it-works.svg" />
+      <Illustration className="pb-20 md:px-10" source="/how-it-works.svg" />
       <FAQ />
       <Footer />
       <ToastContainer position="top-center" theme="colored" />

@@ -43,10 +43,10 @@
     @apply text-slate-300;
   }
   .faq-button {
-    @apply animate flex w-full justify-between rounded-lg bg-slate-900 px-4 py-2 text-left text-lg font-medium text-slate-300 hover:bg-slate-800 focus:outline-none focus-visible:ring focus-visible:ring-slate-700 focus-visible:ring-opacity-75;
+    @apply animate flex w-full justify-between rounded-lg bg-slate-900 px-4 py-2 text-left text-base font-medium text-slate-300 hover:bg-slate-800 focus:outline-none focus-visible:ring focus-visible:ring-slate-700 focus-visible:ring-opacity-75 md:text-lg;
   }
   .faq-text {
-    @apply px-4 pt-4 pb-2 text-slate-400;
+    @apply px-4 pt-4 pb-2 text-sm text-slate-400 md:text-base;
   }
   .progress-point {
     @apply flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full font-bold;
