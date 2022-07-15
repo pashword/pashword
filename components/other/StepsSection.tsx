@@ -3,7 +3,6 @@ import {
   IoIosArrowDroprightCircle,
   IoIosArrowDropleftCircle,
 } from "react-icons/io";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 
 const StepsSection = () => {
   const [step, setStep] = useState(0);
@@ -66,12 +65,12 @@ const StepsSection = () => {
             className="mt-5 flex w-full flex-col items-center justify-start rounded-3xl bg-slate-300/10 p-10 text-center"
             key={step}
           >
-            <motion.h4 className="text-3xl font-semibold text-yellow-500">
+            <h4 className="text-3xl font-semibold text-yellow-500">
               {step === 0 && "Yours Truly"}
               {step === 1 && "The Key is the Key"}
               {step === 2 && "Secure? You bet!"}
-            </motion.h4>
-            <motion.p className="mt-5 w-4/5 text-xl text-slate-300">
+            </h4>
+            <p className="mt-5 w-4/5 text-xl text-slate-300">
               {step === 0 && [
                 "A Pashword is a unique password. It's a cryptographically strong password that's generated using your account details.",
                 <br />,
@@ -93,7 +92,7 @@ const StepsSection = () => {
                 <br />,
                 "Pashword is 100% Open Source so you know it's safe.",
               ]}
-            </motion.p>
+            </p>
           </div>
           {step >= 1 && (
             <IoIosArrowDropleftCircle

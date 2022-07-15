@@ -1,4 +1,5 @@
 import PASSWORD_LENGTH from "../constants/passwordLength";
+import Illustration from "../components/Illustration";
 import HeroSection from "../components/HeroSection";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { ToastContainer } from "react-toastify";
@@ -9,7 +10,7 @@ import Section3 from "../components/Section3";
 import Footer from "../components/Footer";
 import React, { useState } from "react";
 import type { NextPage } from "next";
-import Illustration from "../components/Illustration";
+import FAQ from "../components/FAQ";
 
 const Home: NextPage = () => {
   const [passwordLength, setPasswordLength] = useState(PASSWORD_LENGTH.LARGE);
@@ -24,10 +25,14 @@ const Home: NextPage = () => {
         setPasswordLength={setPasswordLength}
       />
       <Section1 />
-      <Illustration className="mt-20" source="/why-pashword.svg" />
       <Section2 />
+      <Illustration
+        className="mx-auto px-5 pt-10 pb-10 md:px-20 lg:w-1/2 lg:px-0"
+        source="/with-without-pashword.png"
+      />
       <Section3 />
-      <Illustration className="mb-20 px-10" source="/how-it-works.svg" />
+      <Illustration className="px-10 pb-20" source="/how-it-works.svg" />
+      <FAQ />
       <Footer />
       <ToastContainer position="top-center" theme="colored" />
     </div>
