@@ -21,9 +21,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
     const handleScroll = () => {
       setOpacity(1 - (window.scrollY * 1.7) / window.innerHeight);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -61,13 +59,14 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
   };
 
   return (
-    <div className="background-image animate page-root animate relative">
+    <section className="background-image animate page-root animate relative">
       {/* TOP SECTION */}
-      <main className="flex flex-col items-center justify-center pt-10">
+      <main className="flex flex-col items-center justify-center">
         {/* LOGO */}
         <h1 className="background-animate z-10 text-2xl font-bold text-slate-50 xxs:text-6xl xs:text-7xl sm:text-8xl">
           Pashword
         </h1>
+        {/* SUB-HEADING */}
         <h5 className="z-10 text-center text-xs font-medium text-slate-400 xxs:text-lg xs:self-end sm:text-xl">
           Passwords done right
         </h5>
@@ -77,6 +76,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           className="z-10 mt-5 flex w-full flex-col items-center justify-center gap-y-1 text-center text-xs xxs:gap-y-5 xxs:text-base"
           onSubmit={submitHandler}
         >
+          {/* WEBSITE */}
           <div className="flex w-full flex-col items-center justify-center">
             <label className="input-label">Website</label>
             <input
@@ -92,6 +92,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               }}
             />
           </div>
+          {/* USERNAME */}
           <div className="flex w-full flex-col items-center justify-center">
             <label className="input-label">Username</label>
             <input
@@ -103,6 +104,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
+          {/* SECRET CODE */}
           <div className="flex w-full flex-col items-center justify-center">
             <label className="input-label">Secret Code</label>
             <input
@@ -114,6 +116,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {/* PASSWORD LENGTH */}
           <div className="relative flex w-full flex-col items-center justify-center">
             <label className="input-label">Pashword Length</label>
             <Dropdown
@@ -121,9 +124,13 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               setPasswordLength={setPasswordLength}
             />
           </div>
+
+          {/* GET PASHWORD BUTTON */}
           <button type="submit" className="submit-button">
             Get Pashword 😎
           </button>
+
+          {/* PASHWORD POPUP */}
           <div
             className={`${
               pashword.length < 1
@@ -138,6 +145,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
         </form>
       </main>
 
+      {/* OLD BACKGROUND SHAPES */}
       {showBackgroundShapes && (
         <>
           {/* MID TOP RIGHT CYAN */}
@@ -155,6 +163,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
         </>
       )}
 
+      {/* SCROLL TO LEARN MORE */}
       <div
         className={`absolute bottom-5 flex flex-col items-center gap-5 text-slate-400`}
         style={{ opacity: opacity }}
@@ -162,7 +171,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
         <BiMouse className="animate-updown text-2xl" />
         Scroll to Learn More
       </div>
-    </div>
+    </section>
   );
 };
 

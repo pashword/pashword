@@ -2719,6 +2719,11 @@ react-parallax-tilt@^1.7.38:
   resolved "https://registry.yarnpkg.com/react-parallax-tilt/-/react-parallax-tilt-1.7.38.tgz#b31034ec0697b7dc3da79c05d35c9eed6758883c"
   integrity sha512-c6LdE+knhRKyps4Y68Wnz6HKVyorxUYx8WXxkkN54j9v3n8tWIs3msw99o1+PjVO3oSHuXgEMVVvq0gremIO5Q==
 
+react-scroll-motion@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-scroll-motion/-/react-scroll-motion-0.3.0.tgz#50b473da71521e12fcc39a4a1c7eb1e4dfed2a44"
+  integrity sha512-/7VUbyu0nONmlyQsnivcAOPCdc6GnS6LFL7R3QygtBjVAmA7dD29B/jje3jNa0fLlrwycriXq/Nm9sWgX7A1Bw==
+
 react-toastify@^9.0.3:
   version "9.0.3"
   resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.0.3.tgz#8e6d22651c85cb584c5ebd0b5e2c3bf0d7ec06ee"
