@@ -17,7 +17,7 @@ const Dropdown = ({ passwordLength, setPasswordLength }: IProps) => {
         {passwordLength === PASSWORD_LENGTH.LARGE && "Large (Recommended)"}
         <HiOutlineSelector className="text-xl" />
       </Listbox.Button>
-      <Listbox.Options className="absolute top-full z-20 mt-1 flex w-4/5 flex-col rounded-xl bg-slate-700/90 text-slate-100 shadow-lg outline-none ring-1 ring-slate-200 backdrop-blur-xl">
+      <Listbox.Options className="animate absolute top-full z-20 mt-1 flex w-4/5 flex-col rounded-xl bg-slate-700/90 text-slate-100 outline-none ring-1 ring-slate-200 backdrop-blur-xl hover:shadow-lg hover:shadow-slate-400/30">
         <Listbox.Option key={0} value={PASSWORD_LENGTH.SMALL}>
           {({ active }) => (
             <button

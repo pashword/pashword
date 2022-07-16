@@ -30,15 +30,16 @@ const Section3 = () => {
           Pashword is also 100% Open Source so you know it'll always be
           transparent and safe.
         </p>
-        <lottie-player
-          src="https://assets9.lottiefiles.com/packages/lf20_frJ5A7.json"
-          background="transparent"
-          ref={ref}
-          speed="1"
-          loop
-          autoplay
-          style={{ width: "400px", height: "300px" }}
-        ></lottie-player>
+        <div className="w-4/5 xs:w-3/5 md:w-96">
+          <lottie-player
+            src="https://assets9.lottiefiles.com/packages/lf20_frJ5A7.json"
+            background="transparent"
+            ref={ref}
+            speed="1"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
       </div>
     </section>
   );

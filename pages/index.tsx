@@ -9,9 +9,9 @@ import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
 import Footer from "../components/Footer";
 import React, { useState } from "react";
+import Menu from "../components/Menu";
 import type { NextPage } from "next";
 import FAQ from "../components/FAQ";
-import Menu from "../components/Menu";
 
 const Home: NextPage = () => {
   const [passwordLength, setPasswordLength] = useState(PASSWORD_LENGTH.LARGE);
@@ -27,7 +27,9 @@ const Home: NextPage = () => {
           setShowMenu(true);
         }}
       />
-      <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
+      <div className="relative">
+        <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
+      </div>
 
       {/* SECTIONS */}
       <HeroSection
@@ -41,7 +43,10 @@ const Home: NextPage = () => {
         source="/with-without-pashword.png"
       />
       <Section3 />
-      <Illustration className="pb-20 md:px-10" source="/how-it-works.svg" />
+      <Illustration
+        className="mt-20 mb-20 md:px-10"
+        source="/how-it-works.svg"
+      />
       <FAQ />
       <Footer />
       <ToastContainer position="top-center" theme="colored" />

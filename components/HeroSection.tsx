@@ -139,8 +139,10 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
             } animate relative mt-4 w-4/5 cursor-pointer rounded-xl bg-green-500 py-2 backdrop-blur-xl duration-500 hover:shadow-lg hover:shadow-green-400/30 hover:ring-1 hover:ring-green-200`}
           >
             <p className="select-none font-medium text-green-300">Pashword</p>
-            <p className="select-all font-medium text-green-100">{pashword}</p>
-            <BiCopy className="absolute right-3 top-5 select-none text-2xl text-green-300" />
+            <p className="mx-auto w-3/5 select-all truncate font-medium text-green-100 md:w-full">
+              {pashword}
+            </p>
+            <BiCopy className="absolute right-3 top-5 select-none text-sm text-green-300 xs:text-base sm:text-2xl" />
           </div>
         </form>
       </main>
@@ -164,13 +166,15 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
       )}
 
       {/* SCROLL TO LEARN MORE */}
-      <div
-        className={`absolute bottom-5 flex flex-col items-center gap-5 text-slate-400`}
-        style={{ opacity: opacity }}
-      >
-        <BiMouse className="animate-updown text-2xl" />
-        Scroll to Learn More
-      </div>
+      {pashword.length < 1 && (
+        <div
+          className="absolute bottom-5 flex flex-col items-center gap-5 text-sm text-slate-400"
+          style={{ opacity: opacity }}
+        >
+          <BiMouse className="animate-updown sm:text-2xl" />
+          Scroll to Learn More
+        </div>
+      )}
     </section>
   );
 };
