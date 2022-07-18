@@ -1,6 +1,9 @@
 import { generatePashword } from "../utils/algorithm2";
+import { AiFillQuestionCircle } from "react-icons/ai";
 import React, { useEffect, useState } from "react";
 import { BiCopy, BiMouse } from "react-icons/bi";
+import NotWorkingModal from "./NotWorkingModal";
+import ReactTooltip from "react-tooltip";
 import { toast } from "react-toastify";
 import Dropdown from "./Dropdown";
 
@@ -15,7 +18,14 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [pashword, setPashword] = useState("");
-  const showBackgroundShapes = false;
+  const [notWorking, setNotWorking] = useState(false);
+  const [notWorkingForm, setNotWorkingForm] = useState({
+    noSymbols: false,
+    noNumbers: false,
+    min: -1,
+    max: -1,
+    additionalMessage: "",
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +49,14 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
       toast.error("Please enter a website");
       return;
     }
+
+    if (!website.includes(".")) {
+      toast.error(
+        "Please enter a proper website address. For example: maglit.me OR brave.com"
+      );
+      return;
+    }
+
     if (username.length < 1) {
       toast.error("Please enter a username");
       return;
@@ -50,7 +68,8 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
 
     let pashedPassword = generatePashword(
       JSON.stringify(toHash),
-      passwordLength
+      passwordLength,
+      0
     );
 
     setPashword(pashedPassword);
@@ -78,7 +97,12 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
         >
           {/* WEBSITE */}
           <div className="flex w-full flex-col items-center justify-center">
-            <label className="input-label">Website</label>
+            <label
+              className="input-label"
+              data-tip="Enter the website address here. For example: maglit.me OR brave.com OR google.com"
+            >
+              Website <AiFillQuestionCircle className="inline-block" />
+            </label>
             <input
               type="text"
               name="website"
@@ -94,7 +118,12 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           </div>
           {/* USERNAME */}
           <div className="flex w-full flex-col items-center justify-center">
-            <label className="input-label">Username</label>
+            <label
+              className="input-label"
+              data-tip="Enter the username on that website you're trying to generate the pashword for."
+            >
+              Username <AiFillQuestionCircle className="inline-block" />
+            </label>
             <input
               type="text"
               name="username"
@@ -106,7 +135,12 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           </div>
           {/* SECRET CODE */}
           <div className="flex w-full flex-col items-center justify-center">
-            <label className="input-label">Secret Code</label>
+            <label
+              className="input-label"
+              data-tip="Enter a secret code here. This should only be known to you. Use the same secret code on all the pashwords you generate."
+            >
+              Secret Code <AiFillQuestionCircle className="inline-block" />
+            </label>
             <input
               type="password"
               name="passphrase"
@@ -118,18 +152,21 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           </div>
           {/* PASSWORD LENGTH */}
           <div className="relative flex w-full flex-col items-center justify-center">
-            <label className="input-label">Pashword Length</label>
+            <label
+              className="input-label"
+              data-tip="If the website complains about password character length, you can change it here."
+            >
+              Pashword Length <AiFillQuestionCircle className="inline-block" />
+            </label>
             <Dropdown
               passwordLength={passwordLength}
               setPasswordLength={setPasswordLength}
             />
           </div>
-
           {/* GET PASHWORD BUTTON */}
           <button type="submit" className="submit-button">
             Get Pashword 😎
           </button>
-
           {/* PASHWORD POPUP */}
           <div
             className={`${
@@ -145,25 +182,23 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
             <BiCopy className="absolute right-3 top-5 select-none text-sm text-green-300 xs:text-base sm:text-2xl" />
           </div>
         </form>
+        {pashword.length > 0 && (
+          <button
+            type="submit"
+            className="mt-1 font-medium text-slate-500"
+            onClick={() => setNotWorking(true)}
+          >
+            Not Working?
+          </button>
+        )}
+        <NotWorkingModal
+          notWorking={notWorking}
+          setNotWorking={setNotWorking}
+          notWorkingForm={notWorkingForm}
+          setNotWorkingForm={setNotWorkingForm}
+          website={website}
+        />
       </main>
-
-      {/* OLD BACKGROUND SHAPES */}
-      {showBackgroundShapes && (
-        <>
-          {/* MID TOP RIGHT CYAN */}
-          <div className="absolute top-[15%] left-[55%] z-0 h-96 w-52 rounded-full bg-cyan-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96"></div>
-          {/* CENTER VIOLET */}
-          <div className="absolute left-[40%] z-0 h-4/5 w-24 -rotate-45 rounded-full bg-gradient-to-t from-cyan-500 to-violet-600 opacity-30 blur-6xl sm:w-96 md:animate-blob2"></div>
-          {/* RIGHT TOP CORNER BLUE PURPLE */}
-          <div className="absolute left-[80%] -top-[30%] z-0 h-4/5 w-24 -rotate-45 rounded-full bg-gradient-to-t from-cyan-500 to-purple-600 opacity-30 blur-6xl sm:w-96 md:animate-blob"></div>
-          {/* LEFT PURPLE BLUE */}
-          <div className="absolute -left-[10%] -bottom-[20%] z-0 h-4/5 w-24 rotate-45 rounded-full bg-gradient-to-t from-purple-500 to-cyan-600 opacity-30 blur-6xl sm:w-96 md:animate-blob3"></div>
-          {/* CENTER PURPLE */}
-          <div className="absolute top-[35%] left-[40%] z-0 h-1/2 w-24 rounded-full bg-purple-500 opacity-30 mix-blend-exclusion blur-6xl filter sm:w-96 md:animate-blob2"></div>
-          {/* BOTTOM RIGHT PURPLE */}
-          <div className="absolute bottom-10 right-10 z-0 h-96 w-24 rotate-45 transform bg-purple-500 opacity-50 mix-blend-exclusion blur-6xl filter first-letter:rounded-full md:animate-blob"></div>
-        </>
-      )}
 
       {/* SCROLL TO LEARN MORE */}
       {pashword.length < 1 && (
@@ -175,6 +210,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           Scroll to Learn More
         </div>
       )}
+      <ReactTooltip className="w-72 bg-white" />
     </section>
   );
 };

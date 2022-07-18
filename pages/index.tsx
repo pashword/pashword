@@ -16,17 +16,23 @@ import FAQ from "../components/FAQ";
 const Home: NextPage = () => {
   const [passwordLength, setPasswordLength] = useState(PASSWORD_LENGTH.LARGE);
   const [showMenu, setShowMenu] = useState(false);
+  const [realtimeMode, setRealtimeMode] = useState(false);
+
   return (
     <div
-      className={`overflow-x-hidden ${showMenu && "h-screen overflow-hidden"}`}
+      className={`overflow-x-hidden ${
+        showMenu && "h-screen overflow-y-hidden"
+      }`}
     >
       {/* MENU BUTTON */}
-      <HiOutlineMenuAlt3
+      <button
         className="absolute top-2 right-2 z-10 cursor-pointer text-3xl text-white/80"
         onClick={() => {
           setShowMenu(true);
         }}
-      />
+      >
+        <HiOutlineMenuAlt3 />
+      </button>
       <div className="relative">
         <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
       </div>
@@ -49,7 +55,12 @@ const Home: NextPage = () => {
       />
       <FAQ />
       <Footer />
-      <ToastContainer position="top-center" theme="colored" />
+      <ToastContainer
+        position="top-center"
+        theme="colored"
+        limit={1}
+        className="duration-75"
+      />
     </div>
   );
 };
