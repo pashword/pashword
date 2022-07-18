@@ -59,7 +59,7 @@ const Home: NextPage = () => {
         position="top-center"
         theme="colored"
         limit={1}
-        className="duration-75"
+        autoClose={1000}
       />
     </div>
   );

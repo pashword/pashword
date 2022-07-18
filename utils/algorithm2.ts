@@ -20,12 +20,9 @@ export const generatePashword = (
   const shaObj = new jsSHA("SHA3-512", "TEXT", { encoding: "UTF16BE" });
   shaObj.update(toHash);
   // Generate SHA3-512 sum in HEX for string 'toHash'
-  let hashHex = shaObj.getHash("B64");
-  console.log("🚀 => hashHex", hashHex);
+  let hashHex = shaObj.getHash("HEX");
   // encode the hex in base85
   let encodedHash = base85.encode(hashHex);
-
-  console.log("🚀 => encodedHash", encodedHash);
 
   let pashword = "";
   for (let i = 0; i < pashwordLength; i++) {

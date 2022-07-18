@@ -13,6 +13,8 @@ interface IProps {
 }
 
 const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
+  const toastId = React.useRef<any>(null);
+
   const [opacity, setOpacity] = useState(1);
   const [website, setWebsite] = useState("");
   const [username, setUsername] = useState("");
@@ -46,23 +48,33 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
     };
 
     if (website.length < 1) {
-      toast.error("Please enter a website");
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.error("Please enter a website");
+      }
       return;
     }
 
     if (!website.includes(".")) {
-      toast.error(
-        "Please enter a proper website address. For example: maglit.me OR brave.com"
-      );
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.error(
+          "Please enter a proper website address. For example: maglit.me OR brave.com",
+          { autoClose: 3000 }
+        );
+      }
+
       return;
     }
 
     if (username.length < 1) {
-      toast.error("Please enter a username");
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.error("Please enter a username");
+      }
       return;
     }
     if (password.length < 1) {
-      toast.error("Please enter a password");
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.error("Please enter a password");
+      }
       return;
     }
 
@@ -74,7 +86,9 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
 
     setPashword(pashedPassword);
     window.navigator.clipboard.writeText(pashedPassword);
-    toast.success("Pashword copied to clipboard!");
+    if (!toast.isActive(toastId.current)) {
+      toastId.current = toast.success("Pashword copied to clipboard!");
+    }
   };
 
   return (
