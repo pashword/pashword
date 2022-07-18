@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         <link rel="shortcut icon" href="/pw.png" />
 
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://pashword.vercel.app" />
         <meta name="twitter:title" content="Pashword - Passwords done right" />
         <meta
