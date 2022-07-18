@@ -75,7 +75,7 @@ const NotWorkingModal = ({
                     this website.
                   </p>
                 </div>
-                <div className="mt-2 flex flex-col gap-2">
+                <div className="mt-2 flex flex-col gap-2 text-sm sm:text-base">
                   <p className="text-slate-300">
                     Website:{" "}
                     <span className="mr-2 rounded-full bg-slate-700 px-2 text-slate-400">
@@ -127,7 +127,7 @@ const NotWorkingModal = ({
                       <span className="sr-only">No symbols allowed</span>
                     </Switch>
                   </div>
-                  <div className="flex flex-row items-center text-slate-200">
+                  <div className="flex flex-row flex-wrap items-center text-slate-200">
                     <p className="text-slate-300">Password Length ? </p>
                     <input
                       type="number"
@@ -168,7 +168,7 @@ const NotWorkingModal = ({
                     </p>
                     <textarea
                       placeholder="Hello Nayam..."
-                      className="w-30 mt-1 mr-2 rounded-lg bg-slate-700 px-2 text-slate-400 outline-none placeholder:p-1 placeholder:text-slate-500"
+                      className="mt-1 mr-2 block h-20 w-full max-w-sm resize rounded-lg bg-slate-700 px-2 text-slate-400 outline-none placeholder:p-1 placeholder:text-slate-500 xxs:w-1/2"
                       onChange={(e) =>
                         setNotWorkingForm({
                           ...notWorkingForm,

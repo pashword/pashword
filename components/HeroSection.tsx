@@ -199,7 +199,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
         {pashword.length > 0 && (
           <button
             type="submit"
-            className="mt-1 font-medium text-slate-500"
+            className="mt-1 text-xs font-medium text-slate-500 sm:text-base"
             onClick={() => setNotWorking(true)}
           >
             Not Working?
@@ -220,7 +220,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           className="absolute bottom-5 flex flex-col items-center gap-5 text-sm text-slate-400"
           style={{ opacity: opacity }}
         >
-          <BiMouse className="animate-updown sm:text-2xl" />
+          <BiMouse className="animate-updown text-xl md:text-2xl" />
           Scroll to Learn More
         </div>
       )}
