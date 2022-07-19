@@ -21,14 +21,16 @@ export const generatePashword = (
   shaObj.update(toHash);
   // Generate SHA3-512 sum in HEX for string 'toHash'
   let hashHex = shaObj.getHash("HEX");
+  console.log("🚀 => hashHex", hashHex);
   // encode the hex in base85
   let encodedHash = base85.encode(hashHex);
+  console.log("🚀 => encodedHash", encodedHash);
 
   let pashword = "";
   for (let i = 0; i < pashwordLength; i++) {
     // If encoded string contains an invalid character
     if (!allowedCharacters.includes(encodedHash[encodedHash.length - i - 1])) {
-      // replace invalid character with character from 'symbols' string at index i
+      // replace invalid character with character from 'symbols' string at index i from the back
       encodedHash = replaceAt(
         encodedHash,
         encodedHash.length - i - 1,
@@ -39,6 +41,7 @@ export const generatePashword = (
     pashword += encodedHash[encodedHash.length - i - 1];
   }
 
+  // Check if all conditions are satisfied
   let includesSymbols = 0;
   let includesNumbers = 0;
   let includesSmallLetters = 0;
