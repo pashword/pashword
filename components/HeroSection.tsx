@@ -25,6 +25,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
   const [password, setPassword] = useState("");
   const [pashword, setPashword] = useState("");
   const [notWorking, setNotWorking] = useState(false);
+  const [showSecretKey, setShowSecretKey] = useState(false);
   const [notWorkingForm, setNotWorkingForm] = useState({
     noSymbols: false,
     noNumbers: false,
@@ -152,7 +153,22 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
             />
           </div>
           {/* SECRET CODE */}
-          <div className="flex w-full flex-col items-center justify-center">
+          <div className="relative flex w-full flex-col items-center justify-center">
+            {showSecretKey ? (
+              <AiFillEye
+                className="absolute right-8 top-[30px] cursor-pointer text-slate-200 xxs:right-11 xxs:top-11 sm:right-16 sm:top-11"
+                onClick={() => {
+                  setShowSecretKey(false);
+                }}
+              />
+            ) : (
+              <AiFillEyeInvisible
+                className="absolute right-8 top-[30px] cursor-pointer text-slate-400 xxs:right-11 xxs:top-11 sm:right-16 sm:top-11"
+                onClick={() => {
+                  setShowSecretKey(true);
+                }}
+              />
+            )}
             <label
               className="input-label"
               data-tip="Enter a secret key here. This should only be known to you. Use the same secret key on all the pashwords you generate."
@@ -160,13 +176,13 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               Secret Key <AiFillQuestionCircle className="inline-block" />
             </label>
             <input
-              type="password"
+              type={showSecretKey ? "text" : "password"}
               name="passphrase"
               className="input-text"
               placeholder="Example: JimmyNeutron10$"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            ></input>
+            />
             {/* <AiFillEyeInvisible /> */}
           </div>
           {/* PASSWORD LENGTH */}
