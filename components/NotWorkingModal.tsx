@@ -189,7 +189,7 @@ const NotWorkingModal = ({
                     className="animate shadow:ring-1 inline-flex justify-center rounded-full border border-transparent bg-violet-500 px-4 py-2 text-sm font-medium text-violet-100 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     onClick={() => setNotWorking(false)}
                   >
-                    Do the magic!
+                    Submit Report
                   </button>
                 </div>
               </Dialog.Panel>

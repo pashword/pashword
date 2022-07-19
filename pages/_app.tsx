@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="https://pashword.vercel.app/og-image.png"
         />
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }

@@ -10,6 +10,15 @@
   body {
     @apply bg-gradient-to-br from-[#0d0511] to-[#090e14];
   }
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-400;
+  }
+  *::-webkit-scrollbar-track {
+    @apply bg-slate-800;
+  }
 }
 
 @layer components {

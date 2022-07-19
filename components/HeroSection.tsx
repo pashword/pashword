@@ -1,5 +1,9 @@
 import { generatePashword } from "../utils/algorithm2";
-import { AiFillQuestionCircle } from "react-icons/ai";
+import {
+  AiFillEye,
+  AiFillEyeInvisible,
+  AiFillQuestionCircle,
+} from "react-icons/ai";
 import React, { useEffect, useState } from "react";
 import { BiCopy, BiMouse } from "react-icons/bi";
 import NotWorkingModal from "./NotWorkingModal";
@@ -142,7 +146,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               type="text"
               name="username"
               className="input-text"
-              placeholder="Example: nayamamarshe"
+              placeholder="Example: nayam_amarshe"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -151,18 +155,19 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
-              data-tip="Enter a secret code here. This should only be known to you. Use the same secret code on all the pashwords you generate."
+              data-tip="Enter a secret key here. This should only be known to you. Use the same secret key on all the pashwords you generate."
             >
-              Secret Code <AiFillQuestionCircle className="inline-block" />
+              Secret Key <AiFillQuestionCircle className="inline-block" />
             </label>
             <input
               type="password"
               name="passphrase"
               className="input-text"
-              placeholder="Example: mylittlepony"
+              placeholder="Example: JimmyNeutron10$"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />
+            ></input>
+            {/* <AiFillEyeInvisible /> */}
           </div>
           {/* PASSWORD LENGTH */}
           <div className="relative flex w-full flex-col items-center justify-center">

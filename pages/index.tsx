@@ -1,7 +1,7 @@
 import PASSWORD_LENGTH from "../constants/passwordLength";
 import Illustration from "../components/Illustration";
 import HeroSection from "../components/HeroSection";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { CgMenuRightAlt } from "react-icons/cg";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Section1 from "../components/Section1";
@@ -31,7 +31,7 @@ const Home: NextPage = () => {
           setShowMenu(true);
         }}
       >
-        <HiOutlineMenuAlt3 />
+        <CgMenuRightAlt />
       </button>
       <div className="relative">
         <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
