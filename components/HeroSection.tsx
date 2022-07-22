@@ -85,8 +85,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
 
     let pashedPassword = generatePashword(
       JSON.stringify(toHash),
-      passwordLength,
-      0
+      passwordLength
     );
 
     setPashword(pashedPassword);

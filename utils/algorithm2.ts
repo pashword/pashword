@@ -1,30 +1,38 @@
 import base85 from "base85";
 import jsSHA from "jssha";
+import seedrandom from "seedrandom";
 
 const allowedCharacters =
-  "DZ@8cKYle*tGmsVv%Tg3nU4fyS5N.uwLRC&kFbrB2o#I1QzjP$diMhWqA906JpaXxEHO7";
-const validSymbols = "@#$%&*.";
-const MAX_TRIES = 20;
+  "@#$%&*._!0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
+const numbers = "1234567890";
+const validSymbols = "@#$%&*._!";
 
 function replaceAt(str: string, index: number, chr: string) {
   if (index > str.length - 1) return str;
   return str.substring(0, index) + chr + str.substring(index + 1);
 }
 
+function prng(input: string, limit: number, round: number): number {
+  let seed = input;
+  for (let i = 0; i < round; i++) {
+    seed += seed;
+  }
+  return Math.floor(Math.abs(seedrandom.alea(seed)() * 100000)) % limit;
+}
+
 export const generatePashword = (
   toHash: string,
-  pashwordLength: number,
-  tries: number
+  pashwordLength: number
 ): string => {
   // Setting up SHA generation config
   const shaObj = new jsSHA("SHA3-512", "TEXT", { encoding: "UTF16BE" });
   shaObj.update(toHash);
   // Generate SHA3-512 sum in HEX for string 'toHash'
   let hashHex = shaObj.getHash("HEX");
-  console.log("🚀 => hashHex", hashHex);
   // encode the hex in base85
   let encodedHash = base85.encode(hashHex);
-  console.log("🚀 => encodedHash", encodedHash);
 
   let pashword = "";
   for (let i = 0; i < pashwordLength; i++) {
@@ -41,85 +49,19 @@ export const generatePashword = (
     pashword += encodedHash[encodedHash.length - i - 1];
   }
 
-  // Check if all conditions are satisfied
-  let includesSymbols = 0;
-  let includesNumbers = 0;
-  let includesSmallLetters = 0;
-  let includesCapitalLetters = 0;
-  for (let character of pashword) {
-    if (character >= "a" && character <= "z") {
-      includesSmallLetters++;
-    } else if (character >= "A" && character <= "Z") {
-      includesCapitalLetters++;
-    } else if (parseInt(character) >= 0 && parseInt(character) <= 9) {
-      includesNumbers++;
-    } else {
-      includesSymbols++;
-    }
-  }
+  // In case the generated pashword doesn't contain
+  // all required characters, add them all:
+  let index1 = prng(hashHex, uppercaseLetters.length, 1);
+  pashword = replaceAt(pashword, index1, uppercaseLetters[index1]);
 
-  if (includesSymbols === 0) {
-    if (tries < MAX_TRIES) {
-      return generatePashword(encodedHash + "It is", pashwordLength, tries + 1);
-    } else {
-      // Append a random symbol at the end, based on the ASCII value of the last character
-      pashword +=
-        validSymbols[
-          pashword.charCodeAt(pashword.length - 1) % validSymbols.length
-        ];
-    }
-  }
+  let index2 = prng(hashHex, lowercaseLetters.length, 2);
+  pashword = replaceAt(pashword, index2, lowercaseLetters[index2]);
 
-  if (includesNumbers === 0) {
-    if (tries < MAX_TRIES) {
-      return generatePashword(
-        encodedHash + "better to try",
-        pashwordLength,
-        tries + 1
-      );
-    } else {
-      pashword += pashword.charCodeAt(pashword.length - 1) % 10;
-    }
-  }
+  let index3 = prng(hashHex, numbers.length, 3);
+  pashword = replaceAt(pashword, index3, numbers[index3]);
 
-  if (includesSmallLetters === 0) {
-    if (tries < MAX_TRIES) {
-      return generatePashword(
-        encodedHash + "than to wait here",
-        pashwordLength,
-        tries + 1
-      );
-    } else {
-      for (let character of encodedHash) {
-        if (character >= "a" && character <= "z") {
-          pashword += "a";
-          break;
-        }
-      }
-    }
-  }
-
-  if (includesCapitalLetters === 0) {
-    if (tries < MAX_TRIES) {
-      return generatePashword(
-        encodedHash + "for death.",
-        pashwordLength,
-        tries + 1
-      );
-    } else {
-      for (let character of encodedHash) {
-        if (character >= "A" && character <= "Z") {
-          pashword += "A";
-          break;
-        }
-      }
-    }
-  }
+  let index4 = prng(hashHex, validSymbols.length, 4);
+  pashword = replaceAt(pashword, index4, validSymbols[index4]);
 
   return pashword;
 };
-
-// reddit
-// hehe
-//dddddddddd11asdasdd1111111111111111111
-// small
