@@ -1,6 +1,6 @@
+import seedrandom from "seedrandom";
 import base85 from "base85";
 import jsSHA from "jssha";
-import seedrandom from "seedrandom";
 
 const allowedCharacters =
   "@#$%&*._!0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
