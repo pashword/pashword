@@ -18,7 +18,7 @@ const Section3 = () => {
         </h2>
       </div>
       <div className="z-10 flex w-full flex-col items-center justify-center gap-10 px-2 sm:px-0 md:flex-row">
-        <p className="w-full px-5 text-center text-base text-slate-300 sm:px-16 sm:text-2xl md:w-1/3 md:px-0 md:text-left">
+        <p className="w-full px-5 text-center text-sm text-slate-300 xs:text-base sm:px-16 sm:text-2xl md:w-1/3 md:px-0 md:text-left">
           No information ever leaves your computer.
           <br />
           <br />

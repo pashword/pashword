@@ -1,4 +1,4 @@
-import { generatePashword } from "../utils/algorithm2";
+// import { generatePashword } from "../utils/algorithm2";
 import {
   AiFillEye,
   AiFillEyeInvisible,
@@ -10,6 +10,7 @@ import NotWorkingModal from "./NotWorkingModal";
 import ReactTooltip from "react-tooltip";
 import { toast } from "react-toastify";
 import Dropdown from "./Dropdown";
+import { generatePashword } from "../utils/pashword";
 
 interface IProps {
   passwordLength: number;
@@ -85,7 +86,9 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
 
     let pashedPassword = generatePashword(
       JSON.stringify(toHash),
-      passwordLength
+      passwordLength,
+      website,
+      username
     );
 
     setPashword(pashedPassword);
@@ -231,6 +234,8 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           notWorkingForm={notWorkingForm}
           setNotWorkingForm={setNotWorkingForm}
           website={website}
+          pashword={pashword}
+          setPashword={setPashword}
         />
       </main>
 

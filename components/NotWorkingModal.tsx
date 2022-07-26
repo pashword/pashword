@@ -1,6 +1,7 @@
 import { Dialog, Switch, Transition } from "@headlessui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
+import { replaceAt } from "../utils/algorithm2";
 
 interface IProps {
   notWorking: boolean;
@@ -20,6 +21,8 @@ interface IProps {
     additionalMessage: string;
   }) => void;
   website: string;
+  pashword: string;
+  setPashword: (arg: string) => void;
 }
 const NotWorkingModal = ({
   notWorking,
@@ -27,7 +30,36 @@ const NotWorkingModal = ({
   notWorkingForm,
   setNotWorkingForm,
   website,
+  pashword,
+  setPashword,
 }: IProps) => {
+  const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowercaseLetters = "sbjcdrlwogvzpfuqnheyxikmat";
+  const numbers = "7649130825";
+  const symbols = "!*$#.@&_%";
+
+  useEffect(() => {
+    let newPashword = pashword;
+    if (
+      notWorkingForm.noNumbers === false &&
+      notWorkingForm.noSymbols === true
+    ) {
+      for (let i = 0; i < pashword.length; i++) {
+        if (symbols.includes(pashword[i])) {
+          pashword.replace(/\!\*\$\#\.\@\&\_\%/g, numbers[i % numbers.length]);
+        }
+      }
+    } else if (
+      notWorkingForm.noNumbers === true &&
+      notWorkingForm.noSymbols === false
+    ) {
+    } else if (
+      notWorkingForm.noNumbers === true &&
+      notWorkingForm.noSymbols === true
+    ) {
+    }
+  }, [notWorkingForm]);
+
   return (
     <Transition appear show={notWorking} as={React.Fragment}>
       <Dialog
@@ -74,6 +106,9 @@ const NotWorkingModal = ({
                     following details so we can fix Pashword's algorithm for
                     this website.
                   </p>
+                  <div className="h-5 bg-slate-600 text-center">
+                    Temporary Pashword:
+                  </div>
                 </div>
                 <div className="mt-2 flex flex-col gap-2 text-sm sm:text-base">
                   <p className="text-slate-300">
@@ -180,6 +215,13 @@ const NotWorkingModal = ({
                     {notWorkingForm.additionalMessage.length > 1 && (
                       <AiFillCheckCircle className="inline-block text-green-400" />
                     )}
+                  </div>
+                  <p className="text-sm text-slate-500">
+                    Meanwhile, you can use this temporary Pashword with the
+                    conditions you mentioned:
+                  </p>
+                  <div className="text-500 rounded-md bg-green-400 text-center">
+                    {pashword}
                   </div>
                 </div>
 

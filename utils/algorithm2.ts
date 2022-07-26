@@ -51,17 +51,32 @@ export const generatePashword = (
 
   // In case the generated pashword doesn't contain
   // all required characters, add them all:
-  let index1 = prng(hashHex, uppercaseLetters.length, 1);
+  let count = 1;
+  let index1 = prng(hashHex, uppercaseLetters.length, count);
   pashword = replaceAt(pashword, index1, uppercaseLetters[index1]);
 
-  let index2 = prng(hashHex, lowercaseLetters.length, 2);
+  let index2 = prng(hashHex, lowercaseLetters.length, count);
+  while (index2 === index1) {
+    index2 = prng(hashHex, lowercaseLetters.length, count);
+    count++;
+  }
   pashword = replaceAt(pashword, index2, lowercaseLetters[index2]);
 
-  let index3 = prng(hashHex, numbers.length, 3);
+  let index3 = prng(hashHex, numbers.length, count);
+  while (index3 === index2 || index3 === index1) {
+    index3 = prng(hashHex, numbers.length, count);
+    count++;
+  }
   pashword = replaceAt(pashword, index3, numbers[index3]);
 
-  let index4 = prng(hashHex, validSymbols.length, 4);
+  let index4 = prng(hashHex, validSymbols.length, count);
+  while (index4 === index2 || index4 === index1 || index4 === index3) {
+    index4 = prng(hashHex, validSymbols.length, count);
+    count++;
+  }
   pashword = replaceAt(pashword, index4, validSymbols[index4]);
 
   return pashword;
 };
+
+export { replaceAt };

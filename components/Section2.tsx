@@ -7,7 +7,7 @@ const Section2 = () => {
   });
 
   return (
-    <section className="page-root flex gap-10 pt-20 text-slate-50 sm:gap-20 md:pt-0">
+    <section className="page-root mt-20 flex gap-10 text-slate-50 sm:gap-20 md:pt-0">
       <div className="z-10 px-2 text-center sm:px-0">
         <h1 className="z-10 bg-gradient-to-r from-blue-400 via-pink-400 to-orange-400 bg-clip-text text-2xl font-bold text-transparent xxs:text-5xl sm:text-8xl">
           The Key is the Key
@@ -27,7 +27,7 @@ const Section2 = () => {
             autoplay
           ></lottie-player>
         </div>
-        <p className="w-full px-5 text-center text-base text-slate-300 sm:px-16 sm:text-2xl md:w-1/3 md:px-0 md:text-right">
+        <p className="w-full px-5 text-center text-sm text-slate-300 xs:text-base sm:px-16 sm:text-2xl md:w-1/3 md:px-0 md:text-left">
           Your secret key must be unique to you. It could be anything, your
           child's birthdate followed by your pet name, your favorite video game
           character followed your favorite number... You get the deal.
