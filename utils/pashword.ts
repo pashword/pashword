@@ -73,22 +73,25 @@ export const generatePashword = (
     return characterSet[generateIndex(characterSet.length)];
   };
 
-  let index1 = generateIndex(pashwordLength);
+  let pickIndex = [
+    13, 18, 11, 0, 14, 7, 5, 10, 17, 15, 4, 8, 19, 6, 1, 16, 2, 9, 3, 12,
+  ];
 
-  let index2 = generateIndex(pashwordLength);
-  while (index2 === index1) {
-    index2 = generateIndex(pashwordLength);
-  }
+  let removeIndex = generateIndex(pickIndex.length);
+  let index1 = pickIndex[removeIndex];
+  pickIndex.splice(removeIndex, 1);
 
-  let index3 = generateIndex(pashwordLength);
-  while (index3 === index2 || index3 === index1) {
-    index3 = generateIndex(pashwordLength);
-  }
+  removeIndex = generateIndex(pickIndex.length);
+  let index2 = pickIndex[removeIndex];
+  pickIndex.splice(removeIndex, 1);
 
-  let index4 = generateIndex(pashwordLength);
-  while (index4 === index3 || index4 === index2 || index4 === index1) {
-    index4 = generateIndex(pashwordLength);
-  }
+  removeIndex = generateIndex(pickIndex.length);
+  let index3 = pickIndex[removeIndex];
+  pickIndex.splice(removeIndex, 1);
+
+  removeIndex = generateIndex(pickIndex.length);
+  let index4 = pickIndex[removeIndex];
+  pickIndex.splice(removeIndex, 1);
 
   let pashword = "";
   for (let i = 0; i < pashwordLength; i++) {
