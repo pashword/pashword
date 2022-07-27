@@ -66,7 +66,6 @@ export const generatePashword = (
     // SLICE TO READ ONLY 8 BYTES
     // prng = prng.slice(8, prng.length);
 
-    // console.log("Index: ", Number(result % BigInt(modulo)));
     return Number(result % BigInt(modulo));
   };
 

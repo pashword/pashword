@@ -113,7 +113,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
 
         {/* FORM */}
         <form
-          className="z-10 mt-5 flex w-full flex-col items-center justify-center gap-y-1 text-center text-xs xxs:gap-y-5 xxs:text-base"
+          className="z-10 mt-5 flex w-4/5 flex-col items-center justify-center gap-y-1 text-center text-xs xxs:gap-y-5 xxs:text-base"
           onSubmit={submitHandler}
         >
           {/* WEBSITE */}
@@ -155,36 +155,38 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
             />
           </div>
           {/* SECRET CODE */}
-          <div className="relative flex w-full flex-col items-center justify-center">
-            {showSecretKey ? (
-              <AiFillEye
-                className="absolute right-8 top-[30px] cursor-pointer text-slate-200 xxs:right-11 xxs:top-11 sm:right-16 sm:top-11"
-                onClick={() => {
-                  setShowSecretKey(false);
-                }}
-              />
-            ) : (
-              <AiFillEyeInvisible
-                className="absolute right-8 top-[30px] cursor-pointer text-slate-400 xxs:right-11 xxs:top-11 sm:right-16 sm:top-11"
-                onClick={() => {
-                  setShowSecretKey(true);
-                }}
-              />
-            )}
+          <div className="flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
               data-tip="Enter a secret key here. This should only be known to you. Use the same secret key on all the pashwords you generate."
             >
               Secret Key <AiFillQuestionCircle className="inline-block" />
             </label>
-            <input
-              type={showSecretKey ? "text" : "password"}
-              name="passphrase"
-              className="input-text"
-              placeholder="Example: JimmyNeutron10$"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="relative w-full">
+              <input
+                type={showSecretKey ? "text" : "password"}
+                name="passphrase"
+                className="input-text"
+                placeholder="Example: JimmyNeutron10$"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {showSecretKey ? (
+                <AiFillEye
+                  className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer text-xl text-slate-200 xxs:right-4"
+                  onClick={() => {
+                    setShowSecretKey(false);
+                  }}
+                />
+              ) : (
+                <AiFillEyeInvisible
+                  className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer text-xl text-slate-400 xxs:right-4"
+                  onClick={() => {
+                    setShowSecretKey(true);
+                  }}
+                />
+              )}
+            </div>
             {/* <AiFillEyeInvisible /> */}
           </div>
           {/* PASSWORD LENGTH */}
@@ -210,7 +212,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               pashword.length < 1
                 ? "scale-y-0 opacity-0"
                 : "scale-y-100 opacity-100"
-            } animate relative mt-4 w-4/5 cursor-pointer rounded-xl bg-green-500 py-2 backdrop-blur-xl duration-500 hover:shadow-lg hover:shadow-green-400/30 hover:ring-1 hover:ring-green-200`}
+            } animate relative mt-4 w-full cursor-pointer rounded-xl bg-green-500 py-2 backdrop-blur-xl duration-500 hover:shadow-lg hover:shadow-green-400/30 hover:ring-1 hover:ring-green-200`}
           >
             <p className="select-none font-medium text-green-300">Pashword</p>
             <p className="mx-auto w-3/5 select-all truncate font-medium text-green-100 md:w-full">
