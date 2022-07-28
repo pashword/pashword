@@ -1,4 +1,4 @@
-import { generatePashword } from "../../utils/algorithm2";
+import { generatePashword } from "../../utils/algorithm_v2";
 import React, { useEffect, useState } from "react";
 import {
   FaCloud,

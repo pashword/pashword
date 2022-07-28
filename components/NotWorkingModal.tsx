@@ -1,7 +1,7 @@
 import { Dialog, Switch, Transition } from "@headlessui/react";
 import React, { useEffect } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
-import { replaceAt } from "../utils/algorithm2";
+import { replaceAt } from "../utils/algorithm_v2";
 
 interface IProps {
   notWorking: boolean;
