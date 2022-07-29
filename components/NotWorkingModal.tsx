@@ -1,7 +1,7 @@
 import { Dialog, Switch, Transition } from "@headlessui/react";
 import React, { useEffect } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
-import { replaceAt } from "../utils/algorithm_v2";
+import { sanitize } from "../utils/pashword";
 
 interface IProps {
   notWorking: boolean;
@@ -44,15 +44,12 @@ const NotWorkingModal = ({
       notWorkingForm.noNumbers === false &&
       notWorkingForm.noSymbols === true
     ) {
-      for (let i = 0; i < pashword.length; i++) {
-        if (symbols.includes(pashword[i])) {
-          pashword.replace(/\!\*\$\#\.\@\&\_\%/g, numbers[i % numbers.length]);
-        }
-      }
+      newPashword = sanitize(pashword, true, false);
     } else if (
       notWorkingForm.noNumbers === true &&
       notWorkingForm.noSymbols === false
     ) {
+      newPashword = sanitize(pashword, true, false);
     } else if (
       notWorkingForm.noNumbers === true &&
       notWorkingForm.noSymbols === true

@@ -1,16 +1,15 @@
-// import { generatePashword } from "../utils/algorithm2";
-import {
-  AiFillEye,
-  AiFillEyeInvisible,
-  AiFillQuestionCircle,
-} from "react-icons/ai";
+import { generatePashword } from "../utils/pashword";
 import React, { useEffect, useState } from "react";
 import { BiCopy, BiMouse } from "react-icons/bi";
 import NotWorkingModal from "./NotWorkingModal";
 import ReactTooltip from "react-tooltip";
 import { toast } from "react-toastify";
 import Dropdown from "./Dropdown";
-import { generatePashword } from "../utils/pashword";
+import {
+  AiFillEye,
+  AiFillEyeInvisible,
+  AiFillQuestionCircle,
+} from "react-icons/ai";
 
 interface IProps {
   passwordLength: number;

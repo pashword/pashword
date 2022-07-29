@@ -8,6 +8,7 @@ const p = 1;
 
 const allowedCharacters =
   "@#$%&*._!0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const alphabets = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
 const numbers = "1234567890";
@@ -20,6 +21,49 @@ function replaceAt(str: string, index: number, chr: string) {
 
 const encodeUtf8 = (str: string): Uint8Array => {
   return new TextEncoder().encode(str);
+};
+
+const sanitize = (
+  pashword: string,
+  noSymbols?: boolean,
+  noNumbers?: boolean,
+  length?: number
+): string => {
+  const prngObj = new jsSHA("SHAKE256", "TEXT", { encoding: "UTF8" });
+  let pashwordArray = pashword.split("");
+
+  const generateIndex = (hashThis: string): number => {
+    prngObj.update(hashThis);
+    let prng = prngObj.getHash("UINT8ARRAY", { outputLen: 256 });
+    let result = bigintConversion.bufToBigint(prng);
+    return Number(result % BigInt(alphabets.length));
+  };
+
+  if (noSymbols) {
+    for (let i = 0; i < pashwordArray.length; i++) {
+      // If symbol
+      if (validSymbols.includes(pashwordArray[i])) {
+        // Generate a random index using the symbol index
+        // Replace the symbol with alphabet at the generated index
+        pashwordArray[i] =
+          alphabets[generateIndex(i.toString() + pashwordArray[i])];
+      }
+    }
+  }
+
+  if (noNumbers) {
+    for (let i = 0; i < pashwordArray.length; i++) {
+      // If symbol
+      if (parseInt(pashwordArray[i]) >= 0 && parseInt(pashwordArray[i]) <= 9) {
+        // Generate a random index using the symbol index
+        // Replace the symbol with alphabet at the generated index
+        pashwordArray[i] =
+          alphabets[generateIndex(i.toString() + pashwordArray[i].toString())];
+      }
+    }
+  }
+
+  return pashwordArray.join("");
 };
 
 export const generatePashword = (
@@ -73,6 +117,7 @@ export const generatePashword = (
     return characterSet[generateIndex(characterSet.length)];
   };
 
+  // TODO: Generate pickIndex according to Pashword Length
   let pickIndex = [
     13, 18, 11, 0, 14, 7, 5, 10, 17, 15, 4, 8, 19, 6, 1, 16, 2, 9, 3, 12,
   ];
@@ -80,18 +125,22 @@ export const generatePashword = (
   let removeIndex = generateIndex(pickIndex.length);
   let index1 = pickIndex[removeIndex];
   pickIndex.splice(removeIndex, 1);
+  console.log("🚀 => index1", index1);
 
   removeIndex = generateIndex(pickIndex.length);
   let index2 = pickIndex[removeIndex];
   pickIndex.splice(removeIndex, 1);
+  console.log("🚀 => index2", index2);
 
   removeIndex = generateIndex(pickIndex.length);
   let index3 = pickIndex[removeIndex];
   pickIndex.splice(removeIndex, 1);
+  console.log("🚀 => index3", index3);
 
   removeIndex = generateIndex(pickIndex.length);
   let index4 = pickIndex[removeIndex];
   pickIndex.splice(removeIndex, 1);
+  console.log("🚀 => index4", index4);
 
   let pashword = "";
   for (let i = 0; i < pashwordLength; i++) {
@@ -111,4 +160,4 @@ export const generatePashword = (
   return pashword;
 };
 
-export { replaceAt };
+export { sanitize, replaceAt };
