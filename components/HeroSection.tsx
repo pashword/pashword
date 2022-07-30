@@ -62,7 +62,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
     if (!website.includes(".")) {
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.error(
-          "Please enter a proper website address. For example: maglit.me OR brave.com",
+          "Please enter a proper website address. For example: web.telegram.org OR protonmail.com",
           { autoClose: 3000 }
         );
       }
@@ -235,6 +235,8 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           notWorkingForm={notWorkingForm}
           setNotWorkingForm={setNotWorkingForm}
           website={website}
+          password={password}
+          username={username}
           pashword={pashword}
           setPashword={setPashword}
         />
