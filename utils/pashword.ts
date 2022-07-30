@@ -2,6 +2,7 @@ import * as bigintConversion from "bigint-conversion";
 import scrypt from "scrypt-js";
 import jsSHA from "jssha";
 
+// Variables for Scrypt Hashing
 const N = 1 << 15;
 const r = 8;
 const p = 1;
