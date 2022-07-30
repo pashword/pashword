@@ -1,16 +1,15 @@
-// import { generatePashword } from "../utils/algorithm2";
-import {
-  AiFillEye,
-  AiFillEyeInvisible,
-  AiFillQuestionCircle,
-} from "react-icons/ai";
+import { generatePashword } from "../utils/pashword";
 import React, { useEffect, useState } from "react";
 import { BiCopy, BiMouse } from "react-icons/bi";
 import NotWorkingModal from "./NotWorkingModal";
 import ReactTooltip from "react-tooltip";
 import { toast } from "react-toastify";
 import Dropdown from "./Dropdown";
-import { generatePashword } from "../utils/pashword";
+import {
+  AiFillEye,
+  AiFillEyeInvisible,
+  AiFillQuestionCircle,
+} from "react-icons/ai";
 
 interface IProps {
   passwordLength: number;
@@ -63,7 +62,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
     if (!website.includes(".")) {
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.error(
-          "Please enter a proper website address. For example: maglit.me OR brave.com",
+          "Please enter a proper website address. For example: web.telegram.org OR protonmail.com",
           { autoClose: 3000 }
         );
       }
@@ -236,6 +235,8 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           notWorkingForm={notWorkingForm}
           setNotWorkingForm={setNotWorkingForm}
           website={website}
+          password={password}
+          username={username}
           pashword={pashword}
           setPashword={setPashword}
         />

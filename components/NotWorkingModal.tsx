@@ -1,7 +1,7 @@
 import { Dialog, Switch, Transition } from "@headlessui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
-import { replaceAt } from "../utils/algorithm_v2";
+import { generatePashword, sanitize } from "../utils/pashword";
 
 interface IProps {
   notWorking: boolean;
@@ -21,6 +21,8 @@ interface IProps {
     additionalMessage: string;
   }) => void;
   website: string;
+  password: string;
+  username: string;
   pashword: string;
   setPashword: (arg: string) => void;
 }
@@ -30,6 +32,8 @@ const NotWorkingModal = ({
   notWorkingForm,
   setNotWorkingForm,
   website,
+  password,
+  username,
   pashword,
   setPashword,
 }: IProps) => {
@@ -38,26 +42,48 @@ const NotWorkingModal = ({
   const numbers = "7649130825";
   const symbols = "!*$#.@&_%";
 
+  const [newPashword, setNewPashword] = useState(pashword);
   useEffect(() => {
-    let newPashword = pashword;
+    // If custom pashword length
+    let pashedPassword = "";
+    if (notWorkingForm.max <= 20 && notWorkingForm.max >= 4) {
+      // Generate new pashword
+      let toHash = {
+        website,
+        username,
+        password,
+      };
+      pashedPassword = generatePashword(
+        JSON.stringify(toHash),
+        notWorkingForm.max,
+        website,
+        username
+      );
+      setNewPashword(pashedPassword);
+    } else {
+      setNewPashword(pashword);
+    }
+
+    let sanitizedPashword =
+      pashedPassword.length === 0 ? pashword : pashedPassword;
+
     if (
       notWorkingForm.noNumbers === false &&
       notWorkingForm.noSymbols === true
     ) {
-      for (let i = 0; i < pashword.length; i++) {
-        if (symbols.includes(pashword[i])) {
-          pashword.replace(/\!\*\$\#\.\@\&\_\%/g, numbers[i % numbers.length]);
-        }
-      }
+      sanitizedPashword = sanitize(sanitizedPashword, true, false);
     } else if (
       notWorkingForm.noNumbers === true &&
       notWorkingForm.noSymbols === false
     ) {
+      sanitizedPashword = sanitize(sanitizedPashword, false, true);
     } else if (
       notWorkingForm.noNumbers === true &&
       notWorkingForm.noSymbols === true
     ) {
+      sanitizedPashword = sanitize(sanitizedPashword, true, true);
     }
+    setNewPashword(sanitizedPashword);
   }, [notWorkingForm]);
 
   return (
@@ -103,12 +129,9 @@ const NotWorkingModal = ({
                     their security is possibly flawed.
                     <br /> <br /> We can't fix the website but we can make
                     Pashword better for you and others. Please submit the
-                    following details so we can fix Pashword's algorithm for
-                    this website.
+                    following details so we can update Pashword's algorithm for
+                    this website, so you never have to do this ever again.
                   </p>
-                  <div className="h-5 bg-slate-600 text-center">
-                    Temporary Pashword:
-                  </div>
                 </div>
                 <div className="mt-2 flex flex-col gap-2 text-sm sm:text-base">
                   <p className="text-slate-300">
@@ -116,7 +139,7 @@ const NotWorkingModal = ({
                     <span className="mr-2 rounded-full bg-slate-700 px-2 text-slate-400">
                       {website}
                     </span>
-                    <AiFillCheckCircle className="inline-block text-green-400" />
+                    <AiFillCheckCircle className="inline-block text-lg text-green-400" />
                   </p>
                   <div className="flex flex-row items-center">
                     <p className="text-slate-300 ">No symbols allowed ? </p>
@@ -166,21 +189,6 @@ const NotWorkingModal = ({
                     <p className="text-slate-300">Password Length ? </p>
                     <input
                       type="number"
-                      placeholder="5"
-                      onChange={(e) =>
-                        setNotWorkingForm({
-                          ...notWorkingForm,
-                          min: parseInt(e.target.value),
-                        })
-                      }
-                      value={
-                        notWorkingForm.min === -1 ? "" : notWorkingForm.min
-                      }
-                      className="ml-1 inline-block h-5 w-10 rounded-full bg-slate-700 px-2 text-slate-400 outline-none placeholder:text-slate-500"
-                    />
-                    -
-                    <input
-                      type="number"
                       placeholder="15"
                       onChange={(e) =>
                         setNotWorkingForm({
@@ -191,10 +199,10 @@ const NotWorkingModal = ({
                       value={
                         notWorkingForm.max === -1 ? "" : notWorkingForm.max
                       }
-                      className="ml-1 inline-block h-5 w-10 rounded-full bg-slate-700 px-2 text-slate-400 outline-none placeholder:text-slate-500"
+                      className="ml-1 mr-1 inline-block h-5 w-10 rounded-full bg-slate-700 px-2 text-slate-400 outline-none placeholder:text-slate-500"
                     />
                     {notWorkingForm.max > 0 && notWorkingForm.max > 0 && (
-                      <AiFillCheckCircle className="inline-block text-green-400" />
+                      <AiFillCheckCircle className="inline-block text-lg text-green-400" />
                     )}
                   </div>
                   <div className="">
@@ -217,11 +225,11 @@ const NotWorkingModal = ({
                     )}
                   </div>
                   <p className="text-sm text-slate-500">
-                    Meanwhile, you can use this temporary Pashword with the
+                    Meanwhile, you can use this Temporary Pashword with the
                     conditions you mentioned:
                   </p>
                   <div className="text-500 rounded-md bg-green-400 text-center">
-                    {pashword}
+                    {newPashword}
                   </div>
                 </div>
 

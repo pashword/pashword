@@ -46,6 +46,19 @@ export const generatePashword = (
     sha3sum = shaObj.getHash("UINT8ARRAY", { outputLen: 256 });
     let result = bigintConversion.bufToBigint(sha3sum);
 
+    // -- METHOD 2 --
+    // let view = new DataView(prng.buffer, 0);
+    // let result = view.getBigUint64(0, true);
+
+    // -- METHOD 3 --
+    // let result = BigInt(0);
+    // OR i < 8 to make result 64 bit
+    // for (let i = 0; i < prng.length; i++) {
+    //   result = result * BigInt(256) + BigInt(prng[i]);
+    // }
+
+    // SLICE TO READ ONLY 8 BYTES
+    // prng = prng.slice(8, prng.length);
     return Number(result % BigInt(modulo));
   };
 
