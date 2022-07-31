@@ -150,7 +150,7 @@ export const generatePashword = (
       // pick character from lowercase if index1
       pashword += pickCharacter(lowercaseLetters);
     } else if (i === index2) {
-      // pick character from uppercase if index1
+      // pick character from uppercase if index2
       pashword += pickCharacter(uppercaseLetters);
     } else if (i === index3) {
       // pick character from symbols if index3
