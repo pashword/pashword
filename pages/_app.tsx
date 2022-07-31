@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/pw.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://pashword.vercel.app" />
+        <meta name="twitter:url" content="https://pashword.app" />
         <meta name="twitter:title" content="Pashword - Passwords done right" />
         <meta
           name="twitter:description"
@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta
           name="twitter:image"
-          content="https://pashword.vercel.app/twitter-og-image.png"
+          content="https://pashword.app/twitter-og-image.png"
         />
 
         <meta property="og:type" content="website" />
@@ -53,10 +53,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta property="og:site_name" content="Pashword" />
         <meta property="og:url" content="https://pashword.app" />
-        <meta
-          property="og:image"
-          content="https://pashword.vercel.app/og-image.png"
-        />
+        <meta property="og:image" content="https://pashword.app/og-image.png" />
       </Head>
       <Component {...pageProps} />
     </>

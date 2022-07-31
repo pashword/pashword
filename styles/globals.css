@@ -23,7 +23,7 @@
 
 @layer components {
   .background-image {
-    background-image: url("https://pashword.vercel.app/bg.png");
+    background-image: url("https://pashword.app/bg.png");
     background-size: cover;
     @apply animate-bg;
   }

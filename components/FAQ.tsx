@@ -64,7 +64,13 @@ const FAQ = () => {
                 <br />
                 <br /> All of this takes place on your computer and no remote
                 servers are contacted during this process. Your data stays on
-                your computer.
+                your computer. You can take a look at the source code on{" "}
+                <a
+                  href="https://github.com/NayamAmarshe/pashword"
+                  className="font-medium text-sky-500"
+                >
+                  Github
+                </a>
               </Disclosure.Panel>
             </>
           )}
@@ -110,6 +116,71 @@ const FAQ = () => {
                 Length option. The small length is 11 characters. Medium is 15
                 characters and Large is 20 characters. You should always use the
                 recommended Large length, except for when not possible.
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
+        <Disclosure as="div" className="mt-2">
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="faq-button">
+                <span>What does a 'Pashword' even mean?</span>
+              </Disclosure.Button>
+              <Disclosure.Panel className="faq-text">
+                Pashword means a hashed password.
+                <br /> Password + Hash = Pashword.
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
+        <Disclosure as="div" className="mt-2">
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="faq-button">
+                <span>
+                  Why does my screen freeze for a sec when I press the button?
+                </span>
+              </Disclosure.Button>
+              <Disclosure.Panel className="faq-text">
+                Pashword uses cryptographically secure hashing algorithms called
+                Scrypt and SHA3-512. These algorithms are made to avoid
+                bruteforce attacks so even hackers with world-class resources
+                are going to have a hard time cracking your passwords.
+                <br />
+                <br />
+                So when you press the 'Get Pashword' button, your screen will
+                freeze because the calculations being done by your device are
+                very complex, hence it takes some time for the device to
+                generate the pashword. I know it can be annoying, but it's a
+                security measure, better freeze than hacked 😉
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
+        <Disclosure as="div" className="mt-2">
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="faq-button">
+                <span>What if the website doesn't accept my password?</span>
+              </Disclosure.Button>
+              <Disclosure.Panel className="faq-text">
+                Ideally you'd want to let the website owners know their security
+                is as good as a pasta. Did that make sense? No. Just like their
+                password requirements.
+                <br />
+                <br />
+                But fret not, when your password doesn't work, click the 'Not
+                Working?' button underneath the green Pashword button. Here you
+                can mention the website requirements and get a modified pashword
+                in realtime. You can mention a max length and whether the
+                password requirement allows symbols or numbers.
+                <br />
+                <br />
+                Just as easily, you can submit the requirements of the website
+                to me so I can build a database of website requirements. Once I
+                do that, the next time you generate your pashword, Pashword will
+                automatically detect the website and apply the requirements
+                accordingly. No more headaches 🥳
               </Disclosure.Panel>
             </>
           )}
