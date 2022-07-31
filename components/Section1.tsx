@@ -9,7 +9,10 @@ const Section1 = () => {
   });
 
   return (
-    <section className="page-root mt-20 flex gap-10 text-slate-50 sm:gap-20 md:pt-0">
+    <section
+      className="page-root mt-20 flex gap-10 text-slate-50 sm:gap-20 md:pt-0"
+      id="about"
+    >
       <div className={`z-10 px-2 text-center sm:px-0`}>
         <h1 className="z-10 bg-gradient-to-r from-amber-400 via-green-400 to-blue-400 bg-clip-text text-2xl font-bold text-transparent xxs:text-5xl sm:text-8xl">
           Passwords are Dead
@@ -30,7 +33,9 @@ const Section1 = () => {
           <br />
           <br />
           All you need to generate a Pashword is the website name, your
-          account's username on that website and a secret key.
+          account's username on that website and a secret key (No details are
+          stored by Pashword, everything happens offline on your device and is
+          encrypted).
           <br />
           <br />
           If you ever lose your Pashword, just come back here and enter the same
@@ -39,7 +44,7 @@ const Section1 = () => {
         </p>
         <div className="w-3/5 xs:w-2/5 md:w-80">
           <lottie-player
-            src="https://assets3.lottiefiles.com/packages/lf20_wwboncdr.json"
+            src="/animations/laptop_key_animation.json"
             background="transparent"
             ref={lottieRef}
             speed="1"

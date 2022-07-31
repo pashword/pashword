@@ -47,11 +47,13 @@ const Home: NextPage = () => {
       <Illustration
         className="mx-auto px-5 pt-10 pb-10 md:px-20 lg:w-1/2 lg:px-0"
         source="/with-without-pashword.png"
+        sectionId="with-without-pashword"
       />
       <Section3 />
       <Illustration
         className="mt-20 mb-20 md:px-10"
         source="/how-it-works.svg"
+        sectionId="how-it-works"
       />
       <FAQ />
       <Footer />

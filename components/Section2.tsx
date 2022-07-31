@@ -7,7 +7,10 @@ const Section2 = () => {
   });
 
   return (
-    <section className="page-root mt-20 flex gap-10 text-slate-50 sm:gap-20 md:pt-0">
+    <section
+      className="page-root mt-20 flex gap-10 text-slate-50 sm:gap-20 md:pt-0"
+      id="key"
+    >
       <div className="z-10 px-2 text-center sm:px-0">
         <h1 className="z-10 bg-gradient-to-r from-blue-400 via-pink-400 to-orange-400 bg-clip-text text-2xl font-bold text-transparent xxs:text-5xl sm:text-8xl">
           The Key is the Key
@@ -19,7 +22,7 @@ const Section2 = () => {
       <div className="z-10 flex w-full flex-col items-center justify-center gap-10 px-2 sm:px-0 md:flex-row">
         <div className="w-4/5 xs:w-3/5 md:w-96">
           <lottie-player
-            src="https://assets6.lottiefiles.com/packages/lf20_eg88dyk9.json"
+            src="/animations/password_lock_animation.json"
             background="transparent"
             ref={ref}
             speed="1"
@@ -36,6 +39,16 @@ const Section2 = () => {
           The same secret key will help you generate Pashwords for thousands of
           other websites. A single key is all you need to generate unique
           pashwords for all your accounts.
+          <br />
+          <br />
+          Some good examples:{" "}
+          <span className="font-bold underline underline-offset-2">
+            j1mmyn3utr0n#711
+          </span>{" "}
+          or{" "}
+          <span className="font-bold underline underline-offset-2">
+            my$little.pony501
+          </span>
         </p>
       </div>
     </section>

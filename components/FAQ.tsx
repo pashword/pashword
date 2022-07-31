@@ -3,7 +3,7 @@ import React from "react";
 
 const FAQ = () => {
   return (
-    <div className="w-full px-4 pb-20">
+    <div className="w-full px-4 pb-20" id="faq">
       <h1 className="mb-2 text-center text-2xl font-medium text-slate-100">
         FAQ
       </h1>
