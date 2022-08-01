@@ -58,11 +58,11 @@ const sanitize = (
   if (noNumbers) {
     for (let i = 0; i < pashwordArray.length; i++) {
       // If character is a number
-      if (0 <= parseInt(pashwordArray[i]) && parseInt(pashwordArray[i]) <= 9) {
+      if (parseInt(pashwordArray[i]) >= 0 && parseInt(pashwordArray[i]) <= 9) {
         // Generate a random index using the (index+number)
         // Replace the number with an alphabet at the generated index
         pashwordArray[i] =
-          alphabets[generateIndex(i.toString() + pashwordArray[i].toString())];
+          alphabets[generateIndex(i.toString() + pashwordArray[i])];
       }
     }
   }

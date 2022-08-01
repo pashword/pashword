@@ -37,12 +37,8 @@ const NotWorkingModal = ({
   pashword,
   setPashword,
 }: IProps) => {
-  const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const lowercaseLetters = "sbjcdrlwogvzpfuqnheyxikmat";
-  const numbers = "7649130825";
-  const symbols = "!*$#.@&_%";
-
   const [newPashword, setNewPashword] = useState(pashword);
+
   useEffect(() => {
     // If custom pashword length
     let pashedPassword = "";
