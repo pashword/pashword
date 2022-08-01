@@ -46,7 +46,7 @@ const NotWorkingModal = ({
   useEffect(() => {
     // If custom pashword length
     let pashedPassword = "";
-    if (notWorkingForm.max <= 20 && notWorkingForm.max >= 4) {
+    if (notWorkingForm.max <= 20 && notWorkingForm.max >= 5) {
       // Generate new pashword
       let toHash = {
         website,
@@ -84,7 +84,7 @@ const NotWorkingModal = ({
       sanitizedPashword = sanitize(sanitizedPashword, true, true);
     }
     setNewPashword(sanitizedPashword);
-  }, [notWorkingForm]);
+  }, [notWorkingForm.max, notWorkingForm.noNumbers, notWorkingForm.noSymbols]);
 
   return (
     <Transition appear show={notWorking} as={React.Fragment}>
@@ -226,21 +226,23 @@ const NotWorkingModal = ({
                   </div>
                   <p className="text-sm text-slate-500">
                     Meanwhile, you can use this Temporary Pashword with the
-                    conditions you mentioned:
+                    conditions you mentioned:{" "}
+                    <span className="select-all rounded-md bg-slate-700 p-0.5 font-semibold text-green-500">
+                      {newPashword}
+                    </span>
                   </p>
-                  <div className="text-500 rounded-md bg-green-400 text-center">
-                    {newPashword}
-                  </div>
                 </div>
 
                 <div className="mt-4">
-                  <button
-                    type="button"
+                  <a
+                    href={`mailto:nayamamarshe@proton.me?subject=Pashword Request&body=${JSON.stringify(
+                      { website, notWorkingForm }
+                    )}`}
                     className="animate shadow:ring-1 inline-flex justify-center rounded-full border border-transparent bg-violet-500 px-4 py-2 text-sm font-medium text-violet-100 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     onClick={() => setNotWorking(false)}
                   >
                     Submit Report
-                  </button>
+                  </a>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
