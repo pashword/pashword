@@ -32,8 +32,11 @@ const Section2 = () => {
         </div>
         <p className="w-full px-5 text-center text-sm text-slate-300 xs:text-base sm:px-16 sm:text-2xl md:w-1/3 md:px-0 md:text-left">
           Your secret key must be unique to you. It could be anything, your
-          child's birthdate followed by your pet name, your favorite video game
-          character followed your favorite number... You get the deal.
+          child's birthdate followed by your pet name and favorite symbol, your
+          favorite video game character followed your favorite number but in
+          leet speak... You get the deal. It's important to choose a secret that
+          nobody else could guess and make sure to use symbols for extra
+          protection from hackers.
           <br />
           <br />
           The same secret key will help you generate Pashwords for thousands of
