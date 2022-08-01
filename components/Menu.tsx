@@ -1,4 +1,4 @@
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { AiFillGithub, AiOutlineCloseCircle } from "react-icons/ai";
 import React from "react";
 import { Switch } from "@headlessui/react";
 
@@ -25,7 +25,15 @@ const Menu = ({ showMenu, setShowMenu }: IProps) => {
         <div>
           <h1 className="text-2xl font-bold text-slate-100">Pashword</h1>
           <h4 className="text-sm text-slate-400">
-            Made by <span className="font-bold">Nayam Amarshe</span>
+            Made by{" "}
+            <a
+              className="font-bold"
+              href="https://github.com/NayamAmarshe"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Nayam Amarshe
+            </a>
           </h4>
         </div>
 
@@ -71,6 +79,13 @@ const Menu = ({ showMenu, setShowMenu }: IProps) => {
 
           {/* FOOTER */}
           <div className="mt-10 flex flex-col items-center">
+            <a
+              href="https://github.com/NayamAmarshe/pashword"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <AiFillGithub className="text-2xl text-slate-400" />
+            </a>
             <div className="text-center text-sm xs:text-base">
               <p className="text-slate-400">
                 Copyright © 2022{" "}
