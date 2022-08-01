@@ -58,9 +58,9 @@ const FAQ = () => {
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 Once you enter the details like the website, the username and
-                secret key, Pashword's algorithm combines your details, encrypts
-                them and then encodes them into a cryptographically strong
-                password.
+                secret key, Pashword's algorithm combines your details, hashes
+                (one-way-encryption) them and then encodes them into a
+                cryptographically strong password.
                 <br />
                 <br /> All of this takes place on your computer and no remote
                 servers are contacted during this process. Your data stays on
