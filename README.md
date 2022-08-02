@@ -1,7 +1,7 @@
 <div align="center">
 
 # Pashword 🔒
-**FOSS Encrypted Personalized Password Generator and Manager**\
+**FOSS Personalized Hashed Password Generator**\
 Passwords done right
 
 <img src="/public/og-image.png">
