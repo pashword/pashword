@@ -69,20 +69,7 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>4. What does a 'Pashword' even mean?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
-                Pashword means a hashed password.
-                <br /> Password + Hash = Pashword.
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="div" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="faq-button">
-                <span>5. What happens when I enter the details?</span>
+                <span>4. What happens when I enter the details?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 Once you enter the details like the website, the username and
@@ -107,7 +94,7 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>6. Will Pashword always generate the same password?</span>
+                <span>5. Will Pashword always generate the same password?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 Pashword uses your input to calculate a strong password. This
@@ -128,7 +115,7 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>7. What's the 'Pashword Length' option for?</span>
+                <span>6. What's the 'Pashword Length' option for?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 Some websites with horrible security practices don't let you set
@@ -150,7 +137,7 @@ const FAQ = () => {
             <>
               <Disclosure.Button className="faq-button">
                 <span>
-                  8. Why does my screen freeze for a sec when I press the
+                  7. Why does my screen freeze for a sec when I press the
                   button?
                 </span>
               </Disclosure.Button>
@@ -174,7 +161,7 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>9. What if the website doesn't accept my password?</span>
+                <span>8. What if the website doesn't accept my password?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 Ideally you'd want to let the website owners know their security
@@ -203,7 +190,7 @@ const FAQ = () => {
             <>
               <Disclosure.Button className="faq-button">
                 <span>
-                  10. What if my account gets breached and hashes get leaked?
+                  9. What if my account gets breached and hashes get leaked?
                 </span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
@@ -229,15 +216,15 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>11. What if hackers find out my secret key?</span>
+                <span>10. What if hackers find out my secret key?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 If you're following the instructions given for secret key input,
                 then there's no chance that a hacker could use bruteforce to
                 find out your secret key. It's still technically possible, I
-                cannot lie to you, but the that possibility requires them to
-                have a bunch of super-computers, at which point even the
-                military wouldn't be able to save you.
+                cannot lie to you, but the possibility requires them to have a
+                bunch of super-computers, at which point even the military
+                wouldn't be able to save you.
                 <br />
                 <br />
                 Pashword uses Scrypt + SHA3 algorithm to generate passwords so
@@ -261,7 +248,7 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>12. So, is Pashword a password manager?</span>
+                <span>11. So, is Pashword a password manager?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 No not at all. Password managers require a database, most do not
@@ -288,7 +275,7 @@ const FAQ = () => {
             <>
               <Disclosure.Button className="faq-button">
                 <span>
-                  13. I already use a password manager, should I use Pashword?
+                  12. I already use a password manager, should I use Pashword?
                 </span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
@@ -301,8 +288,11 @@ const FAQ = () => {
                 <br /> 5. You want access to all your passwords even when you
                 don't have internet or password manager access.
                 <br />
-                6. You want your computer to do all the unnecessary work for
-                you.
+                <br /> 6. You do not want to waste time coming up with strong
+                passwords for every single one of your accounts separately.
+                <br />
+                7. You want your computer to handle it for you without requiring
+                too much maintenance.
                 <br />
                 <br />
                 You don't need Pashword if you're someone who keeps their
