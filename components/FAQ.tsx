@@ -11,8 +11,23 @@ const FAQ = () => {
         <Disclosure as="div" className="mb-2">
           {({ open }) => (
             <>
+              <Disclosure as="div" className="mb-2">
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="faq-button">
+                      <span>1. What does a 'Pashword' even mean?</span>
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="faq-text">
+                      Pashword means a hashed password. Pashword uses the
+                      concept of hashing to calculate a unique password for your
+                      account.
+                      <br /> Password + Hash = Pashword.
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
               <Disclosure.Button className="faq-button">
-                <span>Why should I use Pashword?</span>
+                <span>2. Why should I use Pashword?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 3 Reasons:
@@ -38,7 +53,7 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>Why did you make this?</span>
+                <span>3. Why did you make this?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 Me dumb. Me forgot bank account password. Bank account blocked.
@@ -54,7 +69,20 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>What happens when I enter the details?</span>
+                <span>4. What does a 'Pashword' even mean?</span>
+              </Disclosure.Button>
+              <Disclosure.Panel className="faq-text">
+                Pashword means a hashed password.
+                <br /> Password + Hash = Pashword.
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
+        <Disclosure as="div" className="mt-2">
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="faq-button">
+                <span>5. What happens when I enter the details?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 Once you enter the details like the website, the username and
@@ -79,22 +107,19 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>
-                  Will Pashword always generate different password for different
-                  websites?
-                </span>
+                <span>6. Will Pashword always generate the same password?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
-                Yes. Pashword uses your input to generate a strong password.
-                This pashword will always be the same as long as the input you
+                Pashword uses your input to calculate a strong password. This
+                pashword will always be the same as long as the input you
                 provide remains the same but when you change even one variable,
-                like the website or username, the Pashword will change, hence
+                like the website or username, the pashword will change, hence
                 giving all your accounts a unique password.
                 <br />
                 <br /> But that doesn't mean you can't generate a different
                 password for the same account later on. All you need to do is
-                change your secret key to get another totally unique Pashword
-                for the same website and username.
+                change your secret key or add a number in front of your username
+                to get another totally unique Pashword for the same account.
               </Disclosure.Panel>
             </>
           )}
@@ -103,7 +128,7 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>What's the 'Pashword Length' option for?</span>
+                <span>7. What's the 'Pashword Length' option for?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 Some websites with horrible security practices don't let you set
@@ -124,21 +149,9 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>What does a 'Pashword' even mean?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
-                Pashword means a hashed password.
-                <br /> Password + Hash = Pashword.
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="div" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="faq-button">
                 <span>
-                  Why does my screen freeze for a sec when I press the button?
+                  8. Why does my screen freeze for a sec when I press the
+                  button?
                 </span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
@@ -161,7 +174,7 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>What if the website doesn't accept my password?</span>
+                <span>9. What if the website doesn't accept my password?</span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
                 Ideally you'd want to let the website owners know their security
@@ -189,20 +202,119 @@ const FAQ = () => {
           {({ open }) => (
             <>
               <Disclosure.Button className="faq-button">
-                <span>Can I change my password later if I don't want it?</span>
+                <span>
+                  10. What if my account gets breached and hashes get leaked?
+                </span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
-                Since Pashword generates the same password for accounts, it
-                poses a problem of changing passwords in rare cases.
+                Since Pashword generates the same password for the same input,
+                it poses a problem of changing passwords in rare cases like data
+                breach.
                 <br />
                 <br />
-                It's easy to change Pashword for your account and all you need
-                to do is change the secret key. If you don't want to change the
-                secret keys, you can just put a number,like '2' in front of your
-                username to get another strong password.
+                I must admit that this is certainly a disadvantage when using
+                hashed passwords. The only solution in this case is to change
+                your secret key and generate a new pashword. So now you have 2
+                secret keys to remember at most.
                 <br />
-                <br /> It'd be ideal to use passwords generated by Pashword with
-                a password manager, best of both worlds.
+                <br /> It's certainly not ideal and can be annoying, but this is
+                something you wouldn't have to do very often. Even if the
+                hackers have your password hash, it would take them several
+                years to centuries to even crack the hash using bruteforce.
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
+        <Disclosure as="div" className="mt-2">
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="faq-button">
+                <span>11. What if hackers find out my secret key?</span>
+              </Disclosure.Button>
+              <Disclosure.Panel className="faq-text">
+                If you're following the instructions given for secret key input,
+                then there's no chance that a hacker could use bruteforce to
+                find out your secret key. It's still technically possible, I
+                cannot lie to you, but the that possibility requires them to
+                have a bunch of super-computers, at which point even the
+                military wouldn't be able to save you.
+                <br />
+                <br />
+                Pashword uses Scrypt + SHA3 algorithm to generate passwords so
+                it protects you from bruteforce attacks by ASICs. ASICs are
+                extremely expensive and for someone to invent an ASIC
+                exclusively for Pashword would require thousands of dollars in
+                resources and a leaked database of your account and even then,
+                it's improbable that they're going to crack your secret key in a
+                few years.
+                <br />
+                <br /> If you have a strong secret key, you have absolutely
+                nothing to worry about. I'm saying this because I use Pashword
+                myself and my secret key is strong enough to protect me from
+                hackers, hopefully yours is too as long as Pashword shows it's
+                green.
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
+        <Disclosure as="div" className="mt-2">
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="faq-button">
+                <span>12. So, is Pashword a password manager?</span>
+              </Disclosure.Button>
+              <Disclosure.Panel className="faq-text">
+                No not at all. Password managers require a database, most do not
+                work without the internet due to sync ability and also let you
+                store multiple passwords for multiple websites.
+                <br />
+                <br />
+                Pashword is a hashed password generator. It doesn't store your
+                passwords in a database, it calculates them according to the
+                input you give to it. Kinda like a math equation:
+                <span className="block rounded-md bg-slate-800 px-1 text-center">
+                  Website + Username + Secret = Pashword
+                </span>
+                <br />
+                <br /> Since pashword calculates everything mathematically, it
+                doesn't know who you are or what accounts you have. It just
+                knows how to generate the password for an input you give to it.
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
+        <Disclosure as="div" className="mt-2">
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="faq-button">
+                <span>
+                  13. I already use a password manager, should I use Pashword?
+                </span>
+              </Disclosure.Button>
+              <Disclosure.Panel className="faq-text">
+                You should use password if:
+                <br /> 1. You use the same password everywhere.
+                <br /> 2. You often forget passwords.
+                <br /> 3. You do not know how to use a password manager.
+                <br />
+                4. You do not want to use a password manager.
+                <br /> 5. You want access to all your passwords even when you
+                don't have internet or password manager access.
+                <br />
+                6. You want your computer to do all the unnecessary work for
+                you.
+                <br />
+                <br />
+                You don't need Pashword if you're someone who keeps their
+                database of password manager close at all times, someone who
+                uses extremely strong and unique passwords for all their
+                accounts or someone who always has access to the interent and
+                multi-device sync.
+                <br />
+                <br /> You can use Pashword in conjuction with a password
+                manager, where you can let your password manager store different
+                secret keys for you in case of a database breach. Now that's
+                what I call double protection.
               </Disclosure.Panel>
             </>
           )}

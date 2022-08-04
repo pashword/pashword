@@ -36,6 +36,9 @@
   .input-text {
     @apply animate h-8 w-full rounded-full bg-slate-400/20 px-4 text-center text-slate-200 shadow-slate-400/30 outline-none ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
   }
+  .input-password {
+    @apply animate h-8 w-full rounded-full px-4 text-center text-slate-200 shadow-slate-400/30 outline-none ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
+  }
   .input-label {
     @apply mb-1 text-slate-400 sm:ml-4 sm:self-start;
   }

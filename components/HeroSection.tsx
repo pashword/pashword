@@ -1,3 +1,4 @@
+import { passwordStrength } from "check-password-strength";
 import { generatePashword } from "../utils/pashword";
 import React, { useEffect, useState } from "react";
 import { BiCopy, BiMouse } from "react-icons/bi";
@@ -10,6 +11,7 @@ import {
   AiFillEyeInvisible,
   AiFillQuestionCircle,
 } from "react-icons/ai";
+import Link from "next/link";
 
 interface IProps {
   passwordLength: number;
@@ -25,6 +27,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
   const [password, setPassword] = useState("");
   const [pashword, setPashword] = useState("");
   const [notWorking, setNotWorking] = useState(false);
+  const [passStrength, setPassStrength] = useState(0);
   const [showSecretKey, setShowSecretKey] = useState(false);
   const [notWorkingForm, setNotWorkingForm] = useState({
     noSymbols: false,
@@ -43,6 +46,11 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    setPassStrength(passwordStrength(password).id);
+    console.log(passwordStrength(password).id);
+  }, [password]);
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
@@ -157,15 +165,24 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
-              data-tip="Enter a secret key here. This should only be known to you. Use the same secret key on all the pashwords you generate."
+              data-tip="Enter a strong secret key here. It should contain lower/uppercase letters, numbers and symbols. The color represents the strength, green is good, red is bad. Use the same secret key everytime you generate a pashword."
             >
-              Secret Key <AiFillQuestionCircle className="inline-block" />
+              Secret Key <AiFillQuestionCircle className="inline-block" />{" "}
             </label>
             <div className="relative w-full">
               <input
                 type={showSecretKey ? "text" : "password"}
                 name="passphrase"
-                className="input-text"
+                className={`input-password 
+                ${password.length === 0 && "bg-slate-400/20"} 
+                ${
+                  password.length > 0 &&
+                  (passStrength === 0 || passStrength === 1) &&
+                  "bg-red-400/50"
+                }
+                ${passStrength === 2 && "bg-yellow-400/50"}
+                ${passStrength === 3 && "bg-green-400/50"}
+                `}
                 placeholder="Example: JimmyNeutron10$"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -179,12 +196,17 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
                 />
               ) : (
                 <AiFillEyeInvisible
-                  className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer text-xl text-slate-400 xxs:right-4"
+                  className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer text-xl text-slate-300/60 xxs:right-4"
                   onClick={() => {
                     setShowSecretKey(true);
                   }}
                 />
               )}
+              <Link href="#key" passHref>
+                <a className="absolute right-2 hidden text-slate-500 xxs:-bottom-6 xxs:block md:-bottom-7">
+                  Read This
+                </a>
+              </Link>
             </div>
             {/* <AiFillEyeInvisible /> */}
           </div>

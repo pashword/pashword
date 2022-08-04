@@ -1,6 +1,7 @@
 import { AiFillGithub, AiOutlineCloseCircle } from "react-icons/ai";
 import React from "react";
 import { Switch } from "@headlessui/react";
+import Link from "next/link";
 
 interface IProps {
   showMenu: boolean;
@@ -38,6 +39,32 @@ const Menu = ({ showMenu, setShowMenu }: IProps) => {
         </div>
 
         <div className="flex h-full flex-col justify-between">
+          <div className="mb-2 font-semibold text-slate-200">
+            Sections:
+            <div className="flex flex-col font-medium text-sky-500">
+              <a
+                href="#about"
+                onClick={() => setShowMenu(false)}
+              >{`> About Pashword`}</a>
+              <a
+                href="#why-pashword"
+                onClick={() => setShowMenu(false)}
+              >{`> Why use Pashword`}</a>
+              <a
+                href="#key"
+                onClick={() => setShowMenu(false)}
+              >{`> Choosing a Secret Key`}</a>
+              <a
+                href="#secure"
+                onClick={() => setShowMenu(false)}
+              >{`> Pashword Transparency`}</a>
+              <a
+                href="#how-it-works"
+                onClick={() => setShowMenu(false)}
+              >{`> How Pashword Works`}</a>
+              <a href="#faq" onClick={() => setShowMenu(false)}>{`> FAQ`}</a>
+            </div>
+          </div>
           {/* OTHER PROJECTS */}
           <div className="flex h-full flex-col gap-2">
             <p className="font-semibold text-slate-200">

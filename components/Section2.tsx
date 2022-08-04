@@ -36,22 +36,23 @@ const Section2 = () => {
           combination of symbols, uppercase letters and numbers for extra
           protection from hackers.
           <br />
-          You can use the website passwordmonster.com to check your password
-          strength. Make sure to only use a strong secret key.
+          <br />
+          Pashword will tell you if your secret key is secure or not. It's very
+          important to not tell anyone your secret key or else hackers could
+          find out all your passwords.
           <br />
           <br />
-          The same secret key will help you generate Pashwords for thousands of
-          other websites. A single key is all you need to generate unique
-          pashwords for all your accounts.
+          Use the same secret key everytime you want to generate a new pashword.
+          You can also use a password manager to store multiple secret keys.
           <br />
           <br />
           Some good examples:{" "}
-          <span className="font-bold underline underline-offset-2">
-            Jimmy$Neutron.64
+          <span className="font-bold underline underline-offset-8">
+            Jimmy$Neutron.64#
           </span>{" "}
           or{" "}
-          <span className="font-bold underline underline-offset-2">
-            my$little.pony501
+          <span className="font-bold underline underline-offset-8">
+            My_L1ttle.P0ny&501
           </span>
         </p>
       </div>

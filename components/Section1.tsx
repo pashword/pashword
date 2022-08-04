@@ -33,14 +33,14 @@ const Section1 = () => {
           <br />
           <br />
           All you need to generate a Pashword is the website name, your
-          account's username on that website and a secret key (No details are
-          stored by Pashword, everything happens offline on your device and is
-          encrypted).
+          account's username on that website and a strong secret key (No details
+          are stored by Pashword, everything happens offline on your device and
+          is encrypted).
           <br />
           <br />
           If you ever lose your Pashword, just come back here and enter the same
           details to get the same Pashword without any hassle. No need for any
-          Password Managers, ever!
+          password managers or internet access.
         </p>
         <div className="w-3/5 xs:w-2/5 md:w-80">
           <lottie-player
@@ -53,7 +53,11 @@ const Section1 = () => {
           ></lottie-player>
         </div>
       </div>
-      <Illustration className="" source="/why-pashword.svg" />
+      <Illustration
+        className="p-3 md:w-[700px]"
+        source="/why-pashword-2.svg"
+        sectionId="why-pashword"
+      />
     </section>
   );
 };
