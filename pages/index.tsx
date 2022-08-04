@@ -2,21 +2,56 @@ import PASSWORD_LENGTH from "../constants/passwordLength";
 import Illustration from "../components/Illustration";
 import { AiOutlineLeftCircle } from "react-icons/ai";
 import HeroSection from "../components/HeroSection";
+import { FiArrowDownCircle } from "react-icons/fi";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
 import Footer from "../components/Footer";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Menu from "../components/Menu";
 import type { NextPage } from "next";
 import FAQ from "../components/FAQ";
 
+let deferredPrompt: any;
+
 const Home: NextPage = () => {
   const [passwordLength, setPasswordLength] = useState(PASSWORD_LENGTH.LARGE);
-  const [showMenu, setShowMenu] = useState(false);
   const [realtimeMode, setRealtimeMode] = useState(false);
+  const [installable, setInstallable] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("beforeinstallprompt", (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI notify the user they can install the PWA
+      setInstallable(true);
+    });
+
+    window.addEventListener("appinstalled", () => {
+      // Log install to analytics
+      console.log("Certified Gamer");
+    });
+  }, []);
+
+  const handleInstallClick = (e: Event) => {
+    // Hide the app provided install promotion
+    setInstallable(false);
+    // Show the install prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult: any) => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("Install Prompt Accepted");
+      } else {
+        console.log("As you wish my g");
+      }
+    });
+  };
 
   return (
     <div
@@ -36,6 +71,16 @@ const Home: NextPage = () => {
       <div className="relative">
         <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
       </div>
+
+      {installable && (
+        <button
+          className="fixed bottom-5 right-5 z-50 flex flex-row items-center justify-center gap-2 rounded-full bg-violet-600 p-3 text-slate-50"
+          onClick={handleInstallClick}
+        >
+          <FiArrowDownCircle className="text-xl" />
+          <span className="hidden sm:block">Install Pashword</span>
+        </button>
+      )}
 
       {/* SECTIONS */}
       <HeroSection
