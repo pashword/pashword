@@ -9,7 +9,7 @@ import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
 import Footer from "../components/Footer";
-import React, { useEffect, useState } from "react";
+import React, { MouseEventHandler, useEffect, useState } from "react";
 import Menu from "../components/Menu";
 import type { NextPage } from "next";
 import FAQ from "../components/FAQ";
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
     });
   }, []);
 
-  const handleInstallClick = (e: Event) => {
+  const handleInstallClick = (e: any) => {
     // Hide the app provided install promotion
     setInstallable(false);
     // Show the install prompt
