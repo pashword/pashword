@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta
           name="description"
-          content="Encrypted Personalized Password Generator"
+          content="Pashword - Hashed Password Generator. Free and Open Source WebApp to generate passwords you don't need to remember. Pashword generates unique strong passwords for all your accounts using just a single key."
         />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:title" content="Pashword - Passwords done right" />
         <meta
           name="twitter:description"
-          content="Encrypted Personalized Password Generator"
+          content="Pashword - Hashed Password Generator. Free and Open Source WebApp to generate passwords you don't need to remember. Pashword generates unique strong passwords for all your accounts using just a single key."
         />
         <meta
           name="twitter:image"
@@ -49,7 +49,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:title" content="Pashword - Passwords done right" />
         <meta
           property="og:description"
-          content="Encrypted Personalized Password Generator. Pashword is a cryptographically secure password generator that generates a unique password for all your accounts."
+          content="Pashword - Hashed Password Generator. Free and Open Source WebApp to generate passwords you don't need to remember. Pashword generates unique strong passwords for all your accounts using just a single key."
         />
         <meta property="og:site_name" content="Pashword" />
         <meta property="og:url" content="https://pashword.app" />
