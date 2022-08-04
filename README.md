@@ -72,6 +72,9 @@ npm run dev
 
 Docker support coming soon. Till then, please follow the development instructions to run a local instance.
 
+# FAQ
+Please [Read the FAQ](https://pashword.app/#faq) for any security questions or doubts about Pashword.
+
 # Credits ♥
 
 This obviously wouldn't have been possible without the people who helped me with the code review and suggested new ideas for the algorithm. I'm deeply grateful to have an army of big brain people who contributed to the completion of this project. Thanks to nsrCodes, TGS963, dsx724, coyotium and everybody else who helped me with this project :)
