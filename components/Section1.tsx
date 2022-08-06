@@ -55,7 +55,7 @@ const Section1 = () => {
       </div>
       <Illustration
         className="p-3 md:w-[700px]"
-        source="/why-pashword-2.svg"
+        source="/why-pashword.svg"
         sectionId="why-pashword"
       />
     </section>
