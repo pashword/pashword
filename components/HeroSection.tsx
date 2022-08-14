@@ -29,6 +29,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
   const [notWorking, setNotWorking] = useState(false);
   const [passStrength, setPassStrength] = useState(0);
   const [showSecretKey, setShowSecretKey] = useState(false);
+  const [generating, setGenerating] = useState(false);
   const [notWorkingForm, setNotWorkingForm] = useState({
     noSymbols: false,
     noNumbers: false,
@@ -52,7 +53,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
     console.log(passwordStrength(password).id);
   }, [password]);
 
-  const submitHandler = (e: React.FormEvent) => {
+  const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     let toHash = {
       website,
@@ -71,7 +72,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.error(
           "Please enter a proper website address. For example: web.telegram.org OR protonmail.com",
-          { autoClose: 3000 }
+          { autoClose: 3000 },
         );
       }
 
@@ -91,18 +92,40 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
       return;
     }
 
-    let pashedPassword = generatePashword(
+    setPashword("");
+    setGenerating(true);
+
+    let pashedPassword = await generatePashword(
       JSON.stringify(toHash),
       passwordLength,
       website,
-      username
+      username,
     );
 
+    setGenerating(false);
+
     setPashword(pashedPassword);
-    window.navigator.clipboard.writeText(pashedPassword);
+
     if (!toast.isActive(toastId.current)) {
-      toastId.current = toast.success("Pashword copied to clipboard!");
+      toastId.current = toast.success(
+        "Pashword generated! Please click it to copy it!",
+      );
     }
+  };
+
+  const copyPashword = async () => {
+    navigator.clipboard.writeText(pashword).then(() => {
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.success("Pashword copied to clipboard!");
+      }
+    }).catch((e) => {
+      console.error(e);
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.error(
+          "Could not copy Pashword! Please copy it manually.",
+        );
+      }
+    });
   };
 
   return (
@@ -224,8 +247,12 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
             />
           </div>
           {/* GET PASHWORD BUTTON */}
-          <button type="submit" className="submit-button">
-            Get Pashword 😎
+          <button type="submit" className={`submit-button ${
+            generating ?
+            'opacity-50 cursor-wait' :
+            ''
+          }`} disabled={generating}>
+            {generating ? "Generating Pashword ⌛" : "Get Pashword 😎"}
           </button>
           {/* PASHWORD POPUP */}
           <div
@@ -234,6 +261,8 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
                 ? "scale-y-0 opacity-0"
                 : "scale-y-100 opacity-100"
             } animate relative mt-4 w-full cursor-pointer rounded-xl bg-green-500 py-2 backdrop-blur-xl duration-500 hover:shadow-lg hover:shadow-green-400/30 hover:ring-1 hover:ring-green-200`}
+            onClick={() => copyPashword()}
+            id="pashword"
           >
             <p className="select-none font-medium text-green-300">Pashword</p>
             <p className="mx-auto w-3/5 select-all truncate font-medium text-green-100 md:w-full">
