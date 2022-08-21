@@ -1,5 +1,5 @@
 import * as bigintConversion from "bigint-conversion";
-import scrypt from "scrypt-js";
+import { scrypt } from "scrypt-js";
 import jsSHA from "jssha";
 
 // Variables for Scrypt Hashing
@@ -71,12 +71,12 @@ const sanitize = (
   return pashwordArray.join("");
 };
 
-export const generatePashword = (
+export const generatePashword = async (
   toHash: string,
   pashwordLength: number,
   website: string,
   username: string
-): string => {
+): Promise<string> => {
   // INITIALIZE SHAKE256 FOR PRNG
   const shaObj = new jsSHA("SHAKE256", "UINT8ARRAY");
   // INITIALIZE SHA3-512 FOR FIRST ENCRYPTION
@@ -87,7 +87,7 @@ export const generatePashword = (
   toHash = sha3Obj.getHash("HEX");
 
   // Generate Scrypt Hash
-  const scryptHash = scrypt.syncScrypt(
+  const scryptHash = await scrypt(
     encodeUtf8(toHash),
     encodeUtf8(website + username),
     N,
