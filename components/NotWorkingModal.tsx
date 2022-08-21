@@ -38,6 +38,7 @@ const NotWorkingModal = ({
   setPashword,
 }: IProps) => {
   const [newPashword, setNewPashword] = useState(pashword);
+  const [generatingPashword, setGeneratingPashword] = useState(false);
 
   useEffect(() => {
     // If custom pashword length
@@ -49,13 +50,20 @@ const NotWorkingModal = ({
         username,
         password,
       };
-      pashedPassword = generatePashword(
-        JSON.stringify(toHash),
-        notWorkingForm.max,
-        website,
-        username
-      );
-      setNewPashword(pashedPassword);
+      setGeneratingPashword(true);
+      const fetchPashedPassword = async () => {
+        return await generatePashword(
+          JSON.stringify(toHash),
+          notWorkingForm.max,
+          website,
+          username
+        );
+      };
+      fetchPashedPassword().then((res) => {
+        pashedPassword = res;
+        setNewPashword(pashedPassword);
+        setGeneratingPashword(false);
+      });
     } else {
       setNewPashword(pashword);
     }
@@ -222,9 +230,10 @@ const NotWorkingModal = ({
                   </div>
                   <p className="text-sm text-slate-500">
                     Meanwhile, you can use this Temporary Pashword with the
-                    conditions you mentioned:{" "}
+                    conditions you mentioned:
+                    <br />
                     <span className="select-all rounded-md bg-slate-700 p-0.5 font-semibold text-green-500">
-                      {newPashword}
+                      {generatingPashword ? "⏳ Loading.." : newPashword}
                     </span>
                   </p>
                 </div>
