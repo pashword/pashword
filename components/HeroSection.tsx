@@ -1,5 +1,5 @@
 import { passwordStrength } from "check-password-strength";
-import { generatePashword } from "../utils/pashword";
+import { generatePashword } from "@pashword/pashword-lib";
 import React, { useEffect, useState } from "react";
 import { BiCopy, BiMouse } from "react-icons/bi";
 import NotWorkingModal from "./NotWorkingModal";
