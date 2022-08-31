@@ -58,9 +58,6 @@ const FAQ = () => {
               <Disclosure.Panel className="faq-text">
                 Me dumb. Me forgot bank account password. Bank account blocked.
                 Me cry.
-                <br />
-                <br /> and so, to never forget my passwords ever again and let
-                my computer do the hardwork for me, I created Pashword 😉
               </Disclosure.Panel>
             </>
           )}
@@ -137,22 +134,23 @@ const FAQ = () => {
             <>
               <Disclosure.Button className="faq-button">
                 <span>
-                  7. Why does my screen freeze for a sec when I press the
+                  7. Why does it take time when I press the 'Get Pashword'
                   button?
                 </span>
               </Disclosure.Button>
               <Disclosure.Panel className="faq-text">
-                Pashword uses cryptographically secure hashing algorithms called
-                Scrypt and SHA3-512. These algorithms are made to avoid
-                bruteforce attacks so even hackers with world-class resources
-                are going to have a hard time cracking your passwords.
+                Internally, Pashword uses cryptographically secure hashing
+                algorithms called Scrypt and SHA3-512. The Pashword algorithm is
+                made to avoid bruteforce attacks so even hackers with
+                world-class resources are going to have a hard time cracking
+                your passwords.
                 <br />
                 <br />
-                So when you press the 'Get Pashword' button, your screen will
-                freeze because the calculations being done by your device are
-                very complex, hence it takes some time for the device to
-                generate the pashword. I know it can be annoying, but it's a
-                security measure, better freeze than hacked 😉
+                So when you press the 'Get Pashword' button, the calculations
+                being done by your device are very complex, hence it takes some
+                time for the device to generate the pashword. I know it can be
+                annoying, but it's a security measure, better late than hacked
+                😉
               </Disclosure.Panel>
             </>
           )}
