@@ -70,6 +70,10 @@ npm run dev
 
 # Self-hosting 🤳
 
+1. Fork this repository.
+2. Sign up on https://vercel.com
+3. Import your forked Pashword repository and enjoy!
+
 Docker support coming soon. Till then, please follow the development instructions to run a local instance.
 
 # FAQ
@@ -78,6 +82,8 @@ Please [Read the FAQ](https://pashword.app/#faq) for any security questions or d
 # Credits ♥
 
 This obviously wouldn't have been possible without the people who helped me with the code review and suggested new ideas for the algorithm. I'm deeply grateful to have an army of big brain people who contributed to the completion of this project. Thanks to nsrCodes, TGS963, dsx724, coyotium and everybody else who helped me with this project :)
+
+Special Thanks to Jake Lees (@brocococonut) for their amazing contributions!
 
 #
 <div align="center">
