@@ -1,7 +1,7 @@
 import { Dialog, Switch, Transition } from "@headlessui/react";
 import React, { useEffect, useState } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
-import { generatePashword, sanitize } from "../utils/pashword";
+import { generatePashword, sanitize } from "@pashword/pashword-lib";
 
 interface IProps {
   notWorking: boolean;
