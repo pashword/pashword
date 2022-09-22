@@ -72,7 +72,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.error(
           "Please enter a proper website address. For example: web.telegram.org OR protonmail.com",
-          { autoClose: 3000 },
+          { autoClose: 3000 }
         );
       }
 
@@ -99,7 +99,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
       JSON.stringify(toHash),
       passwordLength,
       website,
-      username,
+      username
     );
 
     setGenerating(false);
@@ -108,24 +108,27 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
 
     if (!toast.isActive(toastId.current)) {
       toastId.current = toast.success(
-        "Pashword generated! Please click it to copy it!",
+        "Pashword generated! Please click it to copy it!"
       );
     }
   };
 
   const copyPashword = async () => {
-    navigator.clipboard.writeText(pashword).then(() => {
-      if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.success("Pashword copied to clipboard!");
-      }
-    }).catch((e) => {
-      console.error(e);
-      if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.error(
-          "Could not copy Pashword! Please copy it manually.",
-        );
-      }
-    });
+    navigator.clipboard
+      .writeText(pashword)
+      .then(() => {
+        if (!toast.isActive(toastId.current)) {
+          toastId.current = toast.success("Pashword copied to clipboard!");
+        }
+      })
+      .catch((e) => {
+        console.error(e);
+        if (!toast.isActive(toastId.current)) {
+          toastId.current = toast.error(
+            "Could not copy Pashword! Please copy it manually."
+          );
+        }
+      });
   };
 
   return (
@@ -162,7 +165,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               value={website}
               onChange={(e) => {
                 setWebsite(
-                  e.target.value.toLowerCase().replace(/[^a-z0-9\.\-]/, "")
+                  e.target.value.toLowerCase().replace(/[^a-z0-9\:\.\-]/, "")
                 );
               }}
             />
@@ -247,11 +250,13 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
             />
           </div>
           {/* GET PASHWORD BUTTON */}
-          <button type="submit" className={`submit-button ${
-            generating ?
-            'opacity-50 cursor-wait' :
-            ''
-          }`} disabled={generating}>
+          <button
+            type="submit"
+            className={`submit-button ${
+              generating ? "opacity-50 cursor-wait" : ""
+            }`}
+            disabled={generating}
+          >
             {generating ? "Generating Pashword ⌛" : "Get Pashword 😎"}
           </button>
           {/* PASHWORD POPUP */}
