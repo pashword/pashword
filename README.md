@@ -6,15 +6,8 @@ Passwords done right
 
 <img src="/public/og-image.png">
 
-### The WHAT 😳
-Pashword is a hashed password generator that does away with the need to remember passwords. Pashword generates a unique strong password for every single one of your accounts but these passwords aren't just random like the rest of the 91244 other password generators. They are personalized and constant.
-
-### The HOW 🤔
-In a nutshell, Pashword is more of a password calculator than a generator. It's kinda like doing the following: `Website + Username + Secret Key = Unique Password`. Since username and secret key are unique, Pashword is able to generate a strong password made just for you and nobody else can generate it because they'll never know the details you put in it.
-
-Not only does this mean that you won't ever forget how to generate the pashword, but since Pashword generates a password based on the details you put in, your password will remain constant. You can always generate it back when you forget it and you don't even need to remember it! All of this while not storing any data, not connecting to an external server or service. All of this takes place on your device, safe and secure using world-class one-way encryption algorithms.
-
 # 🔒 https://pashword.app 🔒
+
 </div>
 
 # Benefits 🚀
@@ -33,6 +26,14 @@ Not only does this mean that you won't ever forget how to generate the pashword,
 [Pashword.app has verifiable deployments. This means that what you see here is the exact same code that's being used on pashword.app, nothing added, nothing ripped.](https://github.com/pashword/pashword/deployments/activity_log?environment=Production)
 
 Desktop and Mobile apps coming soon!
+
+# The WHAT 😳
+Pashword is a hashed password generator that does away with the need to remember passwords. Pashword generates a unique strong password for every single one of your accounts but these passwords aren't just random like the rest of the 91244 other password generators. They are personalized and constant.
+
+# The HOW 🤔
+In a nutshell, Pashword is more of a password calculator than a generator. It's kinda like doing the following: `Website + Username + Secret Key = Unique Password`. Since username and secret key are unique, Pashword is able to generate a strong password made just for you and nobody else can generate it because they'll never know the details you put in it.
+
+Not only does this mean that you won't ever forget how to generate the pashword, but since Pashword generates a password based on the details you put in, your password will remain constant. You can always generate it back when you forget it and you don't even need to remember it! All of this while not storing any data, not connecting to an external server or service. All of this takes place on your device, safe and secure using world-class one-way encryption algorithms.
 
 # Algorithm 👨‍💻
 The Pashword algorithm has been extensively documented with comments. You can read the [pashword.ts](https://github.com/pashword/pashword-lib/blob/main/src/helpers/pashword.ts) file to know more about it.
