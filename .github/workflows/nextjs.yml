@@ -86,7 +86,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: "https://pashword.github.io/"
     runs-on: ubuntu-latest
     needs: build
     steps:
