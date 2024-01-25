@@ -23,7 +23,7 @@
 
 @layer components {
   .background-image {
-    background-image: url("/bg.png");
+    background-image: url("/bg.webp");
     background-size: cover;
     @apply animate-bg;
   }
