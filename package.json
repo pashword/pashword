@@ -11,7 +11,7 @@
     "@lottiefiles/lottie-player": "^1.5.7",
     "@pashword/pashword-lib": "^0.1.11",
     "check-password-strength": "^2.0.7",
-    "next": "latest",
+    "next": "^12.3.4",
     "next-pwa": "^5.5.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

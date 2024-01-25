@@ -6,6 +6,7 @@
 @layer base {
   html {
     font-family: Poppins, system-ui, sans-serif;
+    @apply bg-slate-1000;
   }
   body {
     @apply bg-gradient-to-br from-[#0d0511] to-[#090e14];
