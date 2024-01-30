@@ -16,6 +16,7 @@ Passwords done right
 <img src="/public/og-image.png">
 
 # 🔒 https://pashword.app 🔒
+# 🔒 [Browser Extension](https://github.com/pashword/extension/) 🔒
 
 </div>
 
