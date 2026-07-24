@@ -32,27 +32,28 @@ const Section2 = () => {
         </div>
         <p className="w-full px-5 text-center text-sm text-slate-300 xs:text-base sm:px-16 sm:text-2xl md:w-1/3 md:px-0 md:text-left">
           Your secret key must be unique to you. It's important to choose a
-          secret key that nobody else could guess and make sure you use a
-          combination of symbols, uppercase letters and numbers for extra
-          protection from hackers.
+          secret key that nobody else could guess. Create a passphrase of 4-7
+          unrelated words that are easy-to-remember. A passphrase made of random
+          words is usually stronger and easier to use than short, complicated
+          ones. No symbols, numbers, or capital letters are needed.
           <br />
           <br />
-          Pashword will tell you if your secret key is secure or not. It's very
-          important to not tell anyone your secret key or else hackers could
-          find out all your passwords.
+          It's very important to not tell anyone your secret key or else hackers
+          could find out all your passwords.
           <br />
           <br />
           Use the same secret key everytime you want to generate a new pashword.
           You can also use a password manager to store multiple secret keys.
           <br />
           <br />
-          Some good examples:{" "}
+          Some good examples: <br />
           <span className="font-bold underline underline-offset-8">
-            Jimmy$Neutron.64#
+            violet river lantern sunset
           </span>{" "}
-          or{" "}
+          <br />
+          or <br />
           <span className="font-bold underline underline-offset-8">
-            My_L1ttle.P0ny&501
+            coffee train moon garden
           </span>
         </p>
       </div>
