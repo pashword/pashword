@@ -12,11 +12,11 @@ module.exports = withPWA({
   },
   trailingSlash: true,
   async rewrites() {
-		return [
-			{
-				source: '/:path*',
-				destination: '/pashword/:path*',
-			},
-		]
-	},
+    return [
+      {
+        source: '/:path*',
+        destination: '/pashword/:path*',
+      },
+    ]
+  },
 });
