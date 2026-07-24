@@ -131,6 +131,10 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
 
   return (
     <section className="background-image animate page-root animate relative">
+      <div className="absolute rotate-[-30deg] w-96 text-center transform top-0 left-0 -translate-x-28 translate-y-7 py-2 inline-flex items-center justify-center z-50 bg-linear-to-l from-purple-600 to-red-600 text-white font-black">
+        NOT VIBECODED
+      </div>
+
       {/* TOP SECTION */}
       <main className="flex z-50 flex-col items-center justify-center">
         {/* LOGO */}
