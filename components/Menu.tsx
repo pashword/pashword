@@ -134,6 +134,10 @@ const Menu = ({ showMenu, setShowMenu }: IProps) => {
                 </a>
                 <br />
                 with ⌨ and 🖱
+                <br />
+                <span className="text-xs">
+                  No AI was used in the creation of this project.
+                </span>
               </p>
             </div>
           </div>
