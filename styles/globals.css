@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
 
 @layer base {
   html {
@@ -9,7 +10,7 @@
     @apply bg-slate-1000;
   }
   body {
-    @apply bg-gradient-to-br from-[#0d0511] to-[#090e14];
+    @apply bg-linear-to-br from-[#0d0511] to-[#090e14];
   }
   *::-webkit-scrollbar {
     width: 8px;
@@ -24,7 +25,7 @@
 
 @layer components {
   .background-image {
-    background-image: url("/bg.webp");
+    background-image: url("/pashword/bg.webp");
     background-size: cover;
     @apply animate-bg;
   }
@@ -35,34 +36,38 @@
     @apply flex min-h-screen w-screen flex-col items-center justify-center;
   }
   .input-text {
-    @apply animate h-8 w-full rounded-full bg-slate-400/20 px-4 text-center text-slate-200 shadow-slate-400/30 outline-none ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
+    /* animate */
+    @apply h-8 w-full rounded-full bg-slate-400/20 px-4 text-center text-slate-200 shadow-slate-400/30 outline-hidden ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
   }
   .input-password {
-    @apply animate h-8 w-full rounded-full px-4 text-center text-slate-200 shadow-slate-400/30 outline-none ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
+    /* animate */
+    @apply h-8 w-full rounded-full px-4 text-center text-slate-200 shadow-slate-400/30 outline-hidden ring-slate-400 placeholder:text-slate-400/60 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-200 xxs:h-12;
   }
   .input-label {
-    @apply mb-1 text-slate-400 sm:ml-4 sm:self-start;
+    @apply mb-1 text-slate-400 sm:ml-4 sm:self-start cursor-help;
   }
   .submit-button {
-    @apply animate z-10 mt-4 h-8 w-full rounded-full bg-violet-600 px-4 text-center font-medium text-slate-200 outline-none ring-violet-500 hover:shadow-lg hover:shadow-violet-500/30 hover:ring-1 hover:ring-violet-300 xxs:h-12;
+    /* animate */
+    @apply z-10 mt-4 h-8 w-full rounded-full bg-violet-600 px-4 text-center font-medium text-slate-200 outline-hidden ring-violet-500 hover:shadow-lg hover:shadow-violet-500/30 hover:ring-1 hover:ring-violet-300 xxs:h-12;
   }
   .card-container {
     @apply flex max-h-64 w-80 flex-col items-center space-y-4 rounded-xl bg-gray-900 p-5;
   }
   .card-heading {
-    @apply bg-gradient-to-br from-cyan-500 to-cyan-200 bg-clip-text text-lg font-semibold text-transparent;
+    @apply bg-linear-to-br from-cyan-500 to-cyan-200 bg-clip-text text-lg font-semibold text-transparent;
   }
   .card-content {
     @apply text-slate-300;
   }
   .faq-button {
-    @apply animate flex w-full justify-between rounded-lg bg-slate-900 px-4 py-2 text-left text-base font-medium text-slate-300 hover:bg-slate-800 focus:outline-none focus-visible:ring focus-visible:ring-slate-700 focus-visible:ring-opacity-75 md:text-lg;
+    /* animate */
+    @apply flex w-full justify-between rounded-lg bg-slate-900 px-4 py-2 text-left text-base font-medium text-slate-300 hover:bg-slate-800 focus:outline-hidden focus-visible:ring focus-visible:ring-slate-700/75 md:text-lg;
   }
   .faq-text {
     @apply px-4 pt-4 pb-2 text-sm text-slate-400 md:text-base;
   }
   .progress-point {
-    @apply flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full font-bold;
+    @apply flex h-5 w-5 shrink-0 items-center justify-center rounded-full font-bold;
   }
 
   /*ANIMATION CLASSES*/

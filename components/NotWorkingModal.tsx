@@ -56,7 +56,7 @@ const NotWorkingModal = ({
           JSON.stringify(toHash),
           notWorkingForm.max,
           website,
-          username
+          username,
         );
       };
       fetchPashedPassword().then((res) => {
@@ -106,7 +106,7 @@ const NotWorkingModal = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-50" />
+          <div className="fixed inset-0 bg-black/50" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -155,7 +155,7 @@ const NotWorkingModal = ({
                           noSymbols: !notWorkingForm.noSymbols,
                         })
                       }
-                      className="ml-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                      className="ml-2 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/75"
                     >
                       <AiFillCheckCircle
                         className={`animate text-lg ${
@@ -177,7 +177,7 @@ const NotWorkingModal = ({
                           noNumbers: !notWorkingForm.noNumbers,
                         })
                       }
-                      className="ml-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                      className="ml-2 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/75"
                     >
                       <AiFillCheckCircle
                         className={`animate text-lg ${
@@ -203,7 +203,7 @@ const NotWorkingModal = ({
                       value={
                         notWorkingForm.max === -1 ? "" : notWorkingForm.max
                       }
-                      className="ml-1 mr-1 inline-block h-5 w-10 rounded-full bg-slate-700 px-2 text-slate-400 outline-none placeholder:text-slate-500"
+                      className="ml-1 mr-1 inline-block h-5 w-10 rounded-full bg-slate-700 px-2 text-slate-400 outline-hidden placeholder:text-slate-500"
                     />
                     {notWorkingForm.max > 0 && notWorkingForm.max > 0 && (
                       <AiFillCheckCircle className="inline-block text-lg text-green-400" />
@@ -215,7 +215,7 @@ const NotWorkingModal = ({
                     </p>
                     <textarea
                       placeholder="Hello Nayam..."
-                      className="mt-1 mr-2 block h-20 w-full max-w-sm resize rounded-lg bg-slate-700 px-2 text-slate-400 outline-none placeholder:p-1 placeholder:text-slate-500 xxs:w-1/2"
+                      className="mt-1 mr-2 block h-20 w-full max-w-sm resize rounded-lg bg-slate-700 px-2 text-slate-400 outline-hidden placeholder:p-1 placeholder:text-slate-500 xxs:w-1/2"
                       onChange={(e) =>
                         setNotWorkingForm({
                           ...notWorkingForm,
@@ -241,9 +241,9 @@ const NotWorkingModal = ({
                 <div className="mt-4">
                   <a
                     href={`mailto:nayamamarshe@gmail.com?subject=Pashword Request&body=${JSON.stringify(
-                      { website, notWorkingForm }
+                      { website, notWorkingForm },
                     )}`}
-                    className="animate shadow:ring-1 inline-flex justify-center rounded-full border border-transparent bg-violet-500 px-4 py-2 text-sm font-medium text-violet-100 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                    className="animate shadow:ring-1 inline-flex justify-center rounded-full border border-transparent bg-violet-500 px-4 py-2 text-sm font-medium text-violet-100 hover:shadow-lg hover:shadow-slate-400/30 hover:ring-1 hover:ring-slate-100 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     onClick={() => setNotWorking(false)}
                   >
                     Submit Report

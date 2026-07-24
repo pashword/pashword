@@ -1,18 +1,20 @@
+import "react-toastify/dist/ReactToastify.css";
+import "react-tooltip/dist/react-tooltip.css";
 import PASSWORD_LENGTH from "../constants/passwordLength";
 import Illustration from "../components/Illustration";
 import { AiOutlineLeftCircle } from "react-icons/ai";
 import HeroSection from "../components/HeroSection";
 import { FiArrowDownCircle } from "react-icons/fi";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
 import Footer from "../components/Footer";
-import React, { MouseEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Menu from "../components/Menu";
 import type { NextPage } from "next";
 import FAQ from "../components/FAQ";
+import { Tooltip } from "react-tooltip";
 
 let deferredPrompt: any;
 
@@ -108,6 +110,7 @@ const Home: NextPage = () => {
         limit={1}
         autoClose={1000}
       />
+      <Tooltip id="tooltip" className="z-50 max-w-72" />
     </div>
   );
 };
