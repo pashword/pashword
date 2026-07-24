@@ -9,10 +9,11 @@ import Section1 from "../components/Section1";
 import Section2 from "../components/Section2";
 import Section3 from "../components/Section3";
 import Footer from "../components/Footer";
-import React, { MouseEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Menu from "../components/Menu";
 import type { NextPage } from "next";
 import FAQ from "../components/FAQ";
+import "react-tooltip/dist/react-tooltip.css";
 
 let deferredPrompt: any;
 

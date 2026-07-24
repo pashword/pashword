@@ -3,7 +3,7 @@ import { generatePashword } from "@pashword/pashword-lib";
 import React, { useEffect, useState } from "react";
 import { BiCopy, BiMouse } from "react-icons/bi";
 import NotWorkingModal from "./NotWorkingModal";
-import ReactTooltip from "react-tooltip";
+import { Tooltip } from "react-tooltip";
 import { toast } from "react-toastify";
 import Dropdown from "./Dropdown";
 import {
@@ -72,7 +72,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.error(
           "Please enter a proper website address. For example: web.telegram.org OR protonmail.com",
-          { autoClose: 3000 }
+          { autoClose: 3000 },
         );
       }
 
@@ -99,7 +99,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
       JSON.stringify(toHash),
       passwordLength,
       website,
-      username
+      username,
     );
 
     setGenerating(false);
@@ -108,7 +108,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
 
     if (!toast.isActive(toastId.current)) {
       toastId.current = toast.success(
-        "Pashword generated! Please click it to copy it!"
+        "Pashword generated! Please click it to copy it!",
       );
     }
   };
@@ -125,7 +125,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
         console.error(e);
         if (!toast.isActive(toastId.current)) {
           toastId.current = toast.error(
-            "Could not copy Pashword! Please copy it manually."
+            "Could not copy Pashword! Please copy it manually.",
           );
         }
       });
@@ -134,7 +134,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
   return (
     <section className="background-image animate page-root animate relative">
       {/* TOP SECTION */}
-      <main className="flex flex-col items-center justify-center">
+      <main className="flex z-50 flex-col items-center justify-center">
         {/* LOGO */}
         <h1 className="background-animate z-10 text-2xl font-bold text-slate-50 xxs:text-6xl xs:text-7xl sm:text-8xl">
           Pashword
@@ -153,7 +153,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
-              data-tip="Enter the website address here. For example: maglit.me OR brave.com OR google.com"
+              data-tooltip-content="Enter the website address here. For example: maglit.me OR brave.com OR google.com"
             >
               Website <AiFillQuestionCircle className="inline-block" />
             </label>
@@ -165,7 +165,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               value={website}
               onChange={(e) => {
                 setWebsite(
-                  e.target.value.toLowerCase().replace(/[^a-z0-9\:\.\-]/, "")
+                  e.target.value.toLowerCase().replace(/[^a-z0-9\:\.\-]/, ""),
                 );
               }}
             />
@@ -174,7 +174,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
-              data-tip="Enter the username on that website you're trying to generate the pashword for."
+              data-tooltip-content="Enter the username on that website you're trying to generate the pashword for."
             >
               Username <AiFillQuestionCircle className="inline-block" />
             </label>
@@ -191,7 +191,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
-              data-tip="Enter a strong secret key here. It should contain lower/uppercase letters, numbers and symbols. The color represents the strength, green is good, red is bad. Use the same secret key everytime you generate a pashword."
+              data-tooltip-content="Enter a strong secret key here. It should contain lower/uppercase letters, numbers and symbols. The color represents the strength, green is good, red is bad. Use the same secret key everytime you generate a pashword."
             >
               Secret Key <AiFillQuestionCircle className="inline-block" />{" "}
             </label>
@@ -228,10 +228,11 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
                   }}
                 />
               )}
-              <Link href="#key" passHref>
-                <a className="absolute right-2 hidden text-slate-500 xxs:-bottom-6 xxs:block md:-bottom-7">
-                  Read This
-                </a>
+              <Link
+                href="#key"
+                className="absolute right-2 hidden text-slate-500 xxs:-bottom-6 xxs:block md:-bottom-7"
+              >
+                Read This
               </Link>
             </div>
             {/* <AiFillEyeInvisible /> */}
@@ -240,7 +241,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="relative flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
-              data-tip="If the website complains about password character length, you can change it here."
+              data-tooltip-content="If the website complains about password character length, you can change it here."
             >
               Pashword Length <AiFillQuestionCircle className="inline-block" />
             </label>
@@ -308,7 +309,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           Scroll to Learn More
         </div>
       )}
-      <ReactTooltip className="w-72 bg-white" />
+      <Tooltip />
     </section>
   );
 };
