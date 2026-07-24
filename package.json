@@ -11,6 +11,7 @@
     "@lottiefiles/lottie-player": "^2.0.12",
     "@pashword/pashword-lib": "^0.1.11",
     "@tailwindcss/postcss": "^4.3.3",
+    "jest": "^30.4.2",
     "next": "16.2.11",
     "react": "19.2.8",
     "react-dom": "19.2.8",

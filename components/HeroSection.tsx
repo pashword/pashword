@@ -1,4 +1,3 @@
-import { passwordStrength } from "check-password-strength";
 import { generatePashword } from "@pashword/pashword-lib";
 import React, { useEffect, useState } from "react";
 import { BiCopy, BiMouse } from "react-icons/bi";
@@ -47,10 +46,10 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
     };
   }, []);
 
-  useEffect(() => {
-    // setPassStrength(passwordStrength(password).id);
-    console.log(passwordStrength(password).id);
-  }, [password]);
+  // useEffect(() => {
+  //   setPassStrength(passwordStrength(password).id);
+  //   console.log(passwordStrength(password).id);
+  // }, [password]);
 
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
