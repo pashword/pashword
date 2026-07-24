@@ -25,7 +25,7 @@
 
 @layer components {
   .background-image {
-    background-image: url("/bg.webp");
+    background-image: url("/pashword/bg.webp");
     background-size: cover;
     @apply animate-bg;
   }
