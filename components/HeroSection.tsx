@@ -3,7 +3,6 @@ import { generatePashword } from "@pashword/pashword-lib";
 import React, { useEffect, useState } from "react";
 import { BiCopy, BiMouse } from "react-icons/bi";
 import NotWorkingModal from "./NotWorkingModal";
-import { Tooltip } from "react-tooltip";
 import { toast } from "react-toastify";
 import Dropdown from "./Dropdown";
 import {
@@ -49,7 +48,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
   }, []);
 
   useEffect(() => {
-    setPassStrength(passwordStrength(password).id);
+    // setPassStrength(passwordStrength(password).id);
     console.log(passwordStrength(password).id);
   }, [password]);
 
@@ -153,6 +152,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
+              data-tooltip-id="tooltip"
               data-tooltip-content="Enter the website address here. For example: maglit.me OR brave.com OR google.com"
             >
               Website <AiFillQuestionCircle className="inline-block" />
@@ -174,6 +174,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
+              data-tooltip-id="tooltip"
               data-tooltip-content="Enter the username on that website you're trying to generate the pashword for."
             >
               Username <AiFillQuestionCircle className="inline-block" />
@@ -191,7 +192,8 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
-              data-tooltip-content="Enter a strong secret key here. It should contain lower/uppercase letters, numbers and symbols. The color represents the strength, green is good, red is bad. Use the same secret key everytime you generate a pashword."
+              data-tooltip-id="tooltip"
+              data-tooltip-content="Enter a passphrase of 4-7 words that you can remember. Choose several unrelated words that are easy for you to remember but hard for others to guess. For example, 'color change car great'. Enter the exact same passphrase every time you generate a password, and never share it with anyone."
             >
               Secret Key <AiFillQuestionCircle className="inline-block" />{" "}
             </label>
@@ -199,17 +201,8 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
               <input
                 type={showSecretKey ? "text" : "password"}
                 name="passphrase"
-                className={`input-password 
-                ${password.length === 0 && "bg-slate-400/20"} 
-                ${
-                  password.length > 0 &&
-                  (passStrength === 0 || passStrength === 1) &&
-                  "bg-red-400/50"
-                }
-                ${passStrength === 2 && "bg-yellow-400/50"}
-                ${passStrength === 3 && "bg-green-400/50"}
-                `}
-                placeholder="Example: JimmyNeutron10$"
+                className={`input-password bg-slate-400/20`}
+                placeholder="Example: jimmy neutron fly high"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -241,6 +234,7 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           <div className="relative flex w-full flex-col items-center justify-center">
             <label
               className="input-label"
+              data-tooltip-id="tooltip"
               data-tooltip-content="If the website complains about password character length, you can change it here."
             >
               Pashword Length <AiFillQuestionCircle className="inline-block" />
@@ -309,7 +303,6 @@ const HeroSection = ({ passwordLength, setPasswordLength }: IProps) => {
           Scroll to Learn More
         </div>
       )}
-      <Tooltip />
     </section>
   );
 };

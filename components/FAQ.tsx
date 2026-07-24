@@ -1,5 +1,8 @@
-import { Disclosure, Transition } from "@headlessui/react";
-import React from "react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 
 const FAQ = () => {
   return (
@@ -14,22 +17,22 @@ const FAQ = () => {
               <Disclosure as="div" className="mb-2">
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="faq-button">
+                    <DisclosureButton className="faq-button">
                       <span>1. What does a 'Pashword' even mean?</span>
-                    </Disclosure.Button>
-                    <Disclosure.Panel className="faq-text">
+                    </DisclosureButton>
+                    <DisclosurePanel className="faq-text">
                       Pashword means a hashed password. Pashword uses the
                       concept of hashing to calculate a unique password for your
                       account.
                       <br /> Password + Hash = Pashword.
-                    </Disclosure.Panel>
+                    </DisclosurePanel>
                   </>
                 )}
               </Disclosure>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>2. Why should I use Pashword?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 3 Reasons:
                 <br /> 1. The passwords most people use, are extremely weak and
                 easy to hack in case of a data breach.
@@ -45,30 +48,30 @@ const FAQ = () => {
                 <b>Pashword solves every single problem listed above,</b>{" "}
                 without increasing any complexity in the password generation
                 process.
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
         <Disclosure>
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>3. Why did you make this?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 Me dumb. Me forgot bank account password. Bank account blocked.
                 Me cry.
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>4. What happens when I enter the details?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 Once you enter the details like the website, the username and
                 secret key, Pashword's algorithm combines your details, hashes
                 (one-way-encryption) them and then encodes them into a
@@ -83,17 +86,17 @@ const FAQ = () => {
                 >
                   Github
                 </a>
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>5. Will Pashword always generate the same password?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 Pashword uses your input to calculate a strong password. This
                 pashword will always be the same as long as the input you
                 provide remains the same but when you change even one variable,
@@ -104,17 +107,17 @@ const FAQ = () => {
                 password for the same account later on. All you need to do is
                 change your secret key or add a number in front of your username
                 to get another totally unique Pashword for the same account.
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>{" "}
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>6. What's the 'Pashword Length' option for?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 Some websites with horrible security practices don't let you set
                 passwords of certain lengths. They'd ask you to only set a
                 password less than 12 characters long, which is kinda absurd but
@@ -125,20 +128,20 @@ const FAQ = () => {
                 Length option. The small length is 11 characters. Medium is 15
                 characters and Large is 20 characters. You should always use the
                 recommended Large length, except for when not possible.
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>
                   7. Why does it take time when I press the 'Get Pashword'
                   button?
                 </span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 Internally, Pashword uses cryptographically secure hashing
                 algorithms called Scrypt and SHA3-512. The Pashword algorithm is
                 made to avoid bruteforce attacks so even hackers with
@@ -151,17 +154,17 @@ const FAQ = () => {
                 time for the device to generate the pashword. I know it can be
                 annoying, but it's a security measure, better late than hacked
                 😉
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>8. What if the website doesn't accept my password?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 Ideally you'd want to let the website owners know their security
                 is as good as a pasta. Did that make sense? No. Just like their
                 password requirements.
@@ -179,19 +182,19 @@ const FAQ = () => {
                 do that, the next time you generate your pashword, Pashword will
                 automatically detect the website and apply the requirements
                 accordingly. No more headaches 🥳
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>
                   9. What if my account gets breached and hashes get leaked?
                 </span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 Since Pashword generates the same password for the same input,
                 it poses a problem of changing passwords in rare cases like data
                 breach.
@@ -206,17 +209,17 @@ const FAQ = () => {
                 something you wouldn't have to do very often. Even if the
                 hackers have your password hash, it would take them several
                 years to centuries to even crack the hash using bruteforce.
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>10. What if hackers find out my secret key?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 If you're following the instructions given for secret key input,
                 then there's no chance that a hacker could use bruteforce to
                 find out your secret key. It's still technically possible, I
@@ -238,17 +241,17 @@ const FAQ = () => {
                 myself and my secret key is strong enough to protect me from
                 hackers, hopefully yours is too as long as Pashword shows it's
                 green.
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>11. So, is Pashword a password manager?</span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 No not at all. Password managers require a database, most do not
                 work without the internet due to sync ability and also let you
                 store multiple passwords for multiple websites.
@@ -264,19 +267,19 @@ const FAQ = () => {
                 <br /> Since pashword calculates everything mathematically, it
                 doesn't know who you are or what accounts you have. It just
                 knows how to generate the password for an input you give to it.
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
         <Disclosure as="div" className="mt-2">
           {({ open }) => (
             <>
-              <Disclosure.Button className="faq-button">
+              <DisclosureButton className="faq-button">
                 <span>
                   12. I already use a password manager, should I use Pashword?
                 </span>
-              </Disclosure.Button>
-              <Disclosure.Panel className="faq-text">
+              </DisclosureButton>
+              <DisclosurePanel className="faq-text">
                 You should use password if:
                 <br /> 1. You use the same password everywhere.
                 <br /> 2. You often forget passwords.
@@ -303,7 +306,7 @@ const FAQ = () => {
                 manager, where you can let your password manager store different
                 secret keys for you in case of a database breach. Now that's
                 what I call double protection.
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>

@@ -1,7 +1,4 @@
 import { AiFillGithub, AiOutlineCloseCircle } from "react-icons/ai";
-import React from "react";
-import { Switch } from "@headlessui/react";
-import Link from "next/link";
 
 interface IProps {
   showMenu: boolean;
