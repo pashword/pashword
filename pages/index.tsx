@@ -74,7 +74,7 @@ const Home: NextPage = () => {
         <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
       </div>
 
-      {installable && (
+      {/* {installable && (
         <button
           className="fixed bottom-5 right-5 z-20 flex flex-row items-center justify-center gap-2 rounded-full bg-violet-600 p-3 text-slate-50"
           onClick={handleInstallClick}
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
           <FiArrowDownCircle className="text-xl" />
           <span className="hidden sm:block">Install Pashword</span>
         </button>
-      )}
+      )} */}
 
       {/* SECTIONS */}
       <HeroSection
