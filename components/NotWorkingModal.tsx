@@ -155,7 +155,7 @@ const NotWorkingModal = ({
                           noSymbols: !notWorkingForm.noSymbols,
                         })
                       }
-                      className="ml-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                      className="ml-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
                     >
                       <AiFillCheckCircle
                         className={`animate text-lg ${
@@ -177,7 +177,7 @@ const NotWorkingModal = ({
                           noNumbers: !notWorkingForm.noNumbers,
                         })
                       }
-                      className="ml-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                      className="ml-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
                     >
                       <AiFillCheckCircle
                         className={`animate text-lg ${
