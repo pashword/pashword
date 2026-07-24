@@ -11,4 +11,12 @@ module.exports = withPWA({
     unoptimized: true, // Important for static export
   },
   trailingSlash: true,
+  async rewrites() {
+		return [
+			{
+				source: '/:path*',
+				destination: '/pashword/:path*',
+			},
+		]
+	},
 });
