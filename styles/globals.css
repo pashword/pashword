@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-@import "tailwindcss";
+@import 'tailwindcss';
+
 @config "../tailwind.config.js";
 
 @layer base {
@@ -9,7 +10,7 @@
     @apply bg-slate-1000;
   }
   body {
-    @apply bg-gradient-to-br from-[#0d0511] to-[#090e14];
+    @apply bg-linear-to-br from-[#0d0511] to-[#090e14];
   }
   *::-webkit-scrollbar {
     width: 8px;
@@ -53,7 +54,7 @@
     @apply flex max-h-64 w-80 flex-col items-center space-y-4 rounded-xl bg-gray-900 p-5;
   }
   .card-heading {
-    @apply bg-gradient-to-br from-cyan-500 to-cyan-200 bg-clip-text text-lg font-semibold text-transparent;
+    @apply bg-linear-to-br from-cyan-500 to-cyan-200 bg-clip-text text-lg font-semibold text-transparent;
   }
   .card-content {
     @apply text-slate-300;

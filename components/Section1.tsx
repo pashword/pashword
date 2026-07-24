@@ -14,7 +14,7 @@ const Section1 = () => {
       id="about"
     >
       <div className={`z-10 px-2 text-center sm:px-0`}>
-        <h1 className="z-10 bg-gradient-to-r from-amber-400 via-green-400 to-blue-400 bg-clip-text text-2xl font-bold text-transparent xxs:text-5xl sm:text-8xl">
+        <h1 className="z-10 bg-linear-to-r from-amber-400 via-green-400 to-blue-400 bg-clip-text text-2xl font-bold text-transparent xxs:text-5xl sm:text-8xl">
           Passwords are Dead
         </h1>
         <h2 className="z-10 text-base font-medium text-slate-500 xs:text-xl sm:text-3xl">
